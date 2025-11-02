@@ -1,47 +1,114 @@
-import React from 'react';
-import { Send, Home, Lock } from 'lucide-react';
+import React, { useState } from 'react';
+import { Send, Home, Lock, X } from 'lucide-react';
 
 const Navigation = ({ currentView, setView }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleNavClick = (view) => {
+    setView(view);
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-sage-200">
-      <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
-          Andreea & Marcus
-        </h1>
-        <div className="flex gap-6">
+    <>
+      {/* Floating Burger Menu Button */}
+      <button
+        onClick={() => setIsMenuOpen(true)}
+        className="fixed top-6 left-6 w-14 h-14 rounded-full bg-sage-600 hover:bg-sage-700 flex items-center justify-center transition-all shadow-lg hover:shadow-xl z-40"
+        aria-label="Open menu"
+      >
+        <div className="flex flex-col gap-1.5">
+          <span className="w-5 h-0.5 bg-white rounded-full"></span>
+          <span className="w-5 h-0.5 bg-white rounded-full"></span>
+          <span className="w-5 h-0.5 bg-white rounded-full"></span>
+        </div>
+      </button>
+
+      {/* Backdrop Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Side Menu */}
+      <div
+        className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        {/* Menu Header */}
+        <div className="p-6 border-b border-sage-200 flex justify-between items-center">
+          <h2 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
+            Menu
+          </h2>
           <button
-            onClick={() => setView('rsvp')}
-            className={`text-sm flex items-center gap-1 transition-colors ${
-              currentView === 'rsvp'
-                ? 'text-sage-700 font-medium'
-                : 'text-gray-600 hover:text-sage-700'
-            }`}
+            onClick={() => setIsMenuOpen(false)}
+            className="w-10 h-10 rounded-full hover:bg-sage-50 flex items-center justify-center transition-colors"
+            aria-label="Close menu"
           >
-            <Send size={16} /> RSVP
-          </button>
-          <button
-            onClick={() => setView('landing')}
-            className={`text-sm flex items-center gap-1 transition-colors ${
-              currentView === 'landing'
-                ? 'text-sage-700 font-medium'
-                : 'text-gray-600 hover:text-sage-700'
-            }`}
-          >
-            <Home size={16} /> Details
-          </button>
-          <button
-            onClick={() => setView('admin')}
-            className={`text-sm flex items-center gap-1 transition-colors ${
-              currentView === 'admin'
-                ? 'text-sage-700 font-medium'
-                : 'text-gray-600 hover:text-sage-700'
-            }`}
-          >
-            <Lock size={16} /> Admin
+            <X size={24} className="text-sage-700" />
           </button>
         </div>
+
+        {/* Menu Items */}
+        <nav className="p-6">
+          <ul className="space-y-2">
+            <li>
+              <button
+                onClick={() => handleNavClick('rsvp')}
+                className={`w-full text-left px-4 py-3 rounded-lg flex items-center gap-3 transition-colors ${
+                  currentView === 'rsvp'
+                    ? 'bg-sage-100 text-sage-700 font-medium'
+                    : 'text-gray-700 hover:bg-sage-50'
+                }`}
+              >
+                <Send size={20} />
+                <span>RSVP</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavClick('landing')}
+                className={`w-full text-left px-4 py-3 rounded-lg flex items-center gap-3 transition-colors ${
+                  currentView === 'landing'
+                    ? 'bg-sage-100 text-sage-700 font-medium'
+                    : 'text-gray-700 hover:bg-sage-50'
+                }`}
+              >
+                <Home size={20} />
+                <span>Wedding Details</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleNavClick('admin')}
+                className={`w-full text-left px-4 py-3 rounded-lg flex items-center gap-3 transition-colors ${
+                  currentView === 'admin'
+                    ? 'bg-sage-100 text-sage-700 font-medium'
+                    : 'text-gray-700 hover:bg-sage-50'
+                }`}
+              >
+                <Lock size={20} />
+                <span>Admin Dashboard</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Menu Footer */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-sage-200">
+          <div className="text-center">
+            <p className="text-sm text-gray-500 mb-1">Join us for</p>
+            <p className="text-sage-700 font-serif text-lg" style={{ fontFamily: 'Georgia, serif' }}>
+              A Weekend Celebration
+            </p>
+            <p className="text-sm text-gray-600 mt-1">26-28 June 2026</p>
+          </div>
+        </div>
       </div>
-    </nav>
+    </>
   );
 };
 

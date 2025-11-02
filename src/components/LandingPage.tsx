@@ -1,4 +1,5 @@
 import React from 'react';
+import LeafAnimation from './LeafAnimation';
 
 const LandingPage = ({ setView }) => {
   return (
@@ -27,13 +28,12 @@ const LandingPage = ({ setView }) => {
           <div className="max-w-2xl mx-auto px-6 md:px-12 py-12 md:py-16">
             
             {/* Header Section */}
-            <div className="text-center mb-12">
-              <div className="mb-6">
-                {/* Eucalyptus leaf illustration */}
-                <svg className="w-16 h-16 mx-auto text-sage-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C10.34 2 9 3.34 9 5c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3zm0 8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                </svg>
+            <div className="text-center mt-6 mb-12">
+              {/* Animated Leaf - Horizontal variant */}
+              <div className="mb-4 flex justify-center">
+                  <LeafAnimation size="large" variant="inverted"/>
               </div>
+                          
               
               <p className="text-sage-700 font-serif text-3xl md:text-4xl mb-4" style={{ fontFamily: 'Georgia, serif' }}>
                 Save the Date
@@ -72,7 +72,7 @@ const LandingPage = ({ setView }) => {
             </div>
 
             {/* Transportation Info */}
-            <div className="mb-16 bg-white rounded-lg p-6 md:p-8 shadow-sm border-l-4 border-sage-500">
+            <div className="mb-16 bg-white rounded-lg p-6 md:p-8 shadow-sm ">
               <h3 className="text-2xl font-serif text-sage-700 mb-4 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />

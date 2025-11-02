@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
 import { submitRSVP } from '../utils/rsvpService';
+import LeafAnimation from './LeafAnimation';
 
 const RSVPForm = ({ setView }) => {
   const [guests, setGuests] = useState([{ name: '', menu: 'normal', attending: 'yes' }]);
@@ -52,13 +53,13 @@ const RSVPForm = ({ setView }) => {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
-      <div className="bg-white rounded-lg shadow-lg p-8 border-t-4 border-sage-500">
+      <div className="bg-white rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          <div className="mb-4">
-            <svg className="w-12 h-12 mx-auto text-sage-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-            </svg>
+          {/* Animated Leaf - Horizontal variant */}
+          <div className="mb-4 flex justify-center">
+            <LeafAnimation size="large" variant="horizontal" />
           </div>
+          
           <h2 className="text-4xl font-serif text-sage-700 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
             RSVP
           </h2>
