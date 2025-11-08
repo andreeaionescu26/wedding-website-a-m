@@ -11,16 +11,16 @@ const Navigation = ({ currentView, setView }) => {
 
   return (
     <>
-      {/* Floating Burger Menu Button */}
+      {/* Minimalistic Floating Burger Button */}
       <button
         onClick={() => setIsMenuOpen(true)}
-        className="fixed top-6 left-6 w-14 h-14 rounded-full bg-sage-600 hover:bg-sage-700 flex items-center justify-center transition-all shadow-lg hover:shadow-xl z-40"
+        className="fixed top-6 left-6 w-14 h-14 rounded-full bg-white/50 backdrop-blur-sm hover:bg-white/80 flex items-center justify-center transition-all shadow-sm hover:shadow-md z-40 group"
         aria-label="Open menu"
       >
         <div className="flex flex-col gap-1.5">
-          <span className="w-5 h-0.5 bg-white rounded-full"></span>
-          <span className="w-5 h-0.5 bg-white rounded-full"></span>
-          <span className="w-5 h-0.5 bg-white rounded-full"></span>
+          <span className="w-6 h-1 bg-sage-600 group-hover:bg-sage-700 transition-colors rounded-full"></span>
+          <span className="w-6 h-1 bg-sage-600 group-hover:bg-sage-700 transition-colors rounded-full"></span>
+          <span className="w-6 h-1 bg-sage-600 group-hover:bg-sage-700 transition-colors rounded-full"></span>
         </div>
       </button>
 

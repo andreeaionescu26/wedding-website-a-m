@@ -27,6 +27,12 @@ export default {
           400: '#e8dfc9',
         }
       },
+      fontFamily: {
+        'primary': ['Alegreya', 'serif'],
+        'heading': ['British Castilla', 'serif'],
+        'sans': ['Alegreya', 'serif'], // Default font for body
+        'serif': ['British Castilla', 'serif'], // For special headings
+      }
     },
   },
   plugins: [],

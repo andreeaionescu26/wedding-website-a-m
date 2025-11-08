@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(false);
 
   // Change this to your desired admin password
-  const ADMIN_PASSWORD = 'wedding2025';
+  const ADMIN_PASSWORD = 'BebeBride2026';
 
   const handleLogin = () => {
     if (password === ADMIN_PASSWORD) {

@@ -1,0 +1,8 @@
+/* British Castilla Font */
+@font-face {
+  font-family: 'British Castilla';
+  src: url('/fonts/British-Castilla.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
