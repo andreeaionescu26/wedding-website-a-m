@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Send, Home, Lock, X } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Navigation = ({ currentView, setView }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const handleNavClick = (view) => {
     setView(view);
@@ -41,7 +43,7 @@ const Navigation = ({ currentView, setView }) => {
         {/* Menu Header */}
         <div className="p-6 border-b border-sage-200 flex justify-between items-center">
           <h2 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
-            Menu
+            {t.nav.menu}
           </h2>
           <button
             onClick={() => setIsMenuOpen(false)}
@@ -65,7 +67,7 @@ const Navigation = ({ currentView, setView }) => {
                 }`}
               >
                 <Send size={20} />
-                <span>RSVP</span>
+                <span>{t.nav.rsvp}</span>
               </button>
             </li>
             <li>
@@ -78,7 +80,7 @@ const Navigation = ({ currentView, setView }) => {
                 }`}
               >
                 <Home size={20} />
-                <span>Wedding Details</span>
+                <span>{t.nav.wedding}</span>
               </button>
             </li>
             <li>
@@ -91,7 +93,7 @@ const Navigation = ({ currentView, setView }) => {
                 }`}
               >
                 <Lock size={20} />
-                <span>Admin Dashboard</span>
+                <span>{t.nav.admin}</span>
               </button>
             </li>
           </ul>
@@ -100,11 +102,11 @@ const Navigation = ({ currentView, setView }) => {
         {/* Menu Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-sage-200">
           <div className="text-center">
-            <p className="text-sm text-gray-500 mb-1">Join us for</p>
+            <p className="text-sm text-gray-500 mb-1">{t.nav.footer.text}</p>
             <p className="text-sage-700 font-serif text-lg" style={{ fontFamily: 'Georgia, serif' }}>
-              A Weekend Celebration
+              {t.nav.footer.celebration}
             </p>
-            <p className="text-sm text-gray-600 mt-1">26-28 June 2026</p>
+            <p className="text-sm text-gray-600 mt-1">{t.nav.footer.dates}</p>
           </div>
         </div>
       </div>

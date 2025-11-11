@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 import LeafAnimation from './LeafAnimation';
 
 const LandingPage = ({ setView }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Trigger initial fade-in
@@ -241,10 +243,10 @@ const LandingPage = ({ setView }) => {
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
             <div className="text-center text-white px-8">
               <h1 className={`text-3xl md:text-4xl lg:text-6xl font-serif mb-8 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
-                Andreea & Marcus
+                {t.landing.names}
               </h1>
               <p className={`text-xl md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
-                We're getting married!
+                {t.landing.tagline}
               </p>
             </div>
           </div>
@@ -263,20 +265,20 @@ const LandingPage = ({ setView }) => {
                           
               
               <p className={`text-sage-700 font-heading text-2xl md:text-3xl mb-8 fade-content ${isVisible ? 'visible' : ''}`}>
-                Save the Date
+                {t.landing.saveDate}
               </p>
               
               <div className={`space-y-2 text-gray-700 mb-6 fade-content ${isVisible ? 'visible' : ''}`}>
-                <p className="text-2xl font-light">26-28 June 2026</p>
-                <p className="text-xl">Zabola Estate</p>
-                <p className="text-lg text-gray-600">Transylvania, Romania</p>
+                <p className="text-2xl font-light">{t.landing.dates}</p>
+                <p className="text-xl">{t.landing.venue}</p>
+                <p className="text-lg text-gray-600">{t.landing.location}</p>
               </div>
 
               <button
                 onClick={() => setView('rsvp')}
                 className={`bg-sage-600 text-white px-8 py-3 rounded-md hover:bg-sage-700 transition-colors shadow-md font-medium text-lg fade-button ${isVisible ? 'visible' : ''}`}
               >
-                RSVP Now
+                {t.landing.rsvpButton}
               </button>
             </div>
 
@@ -292,9 +294,7 @@ const LandingPage = ({ setView }) => {
             {/* Welcome Paragraph */}
             <div className="mb-16 scroll-reveal">
               <p className="text-gray-700 text-xl leading-relaxed text-center md:text-left">
-                Andreea and Marcus are getting married on Saturday, 27th of June 2026 at Zabola Estate. 
-                Join us for a weekend celebration from Friday to Sunday as we tie the knot, surrounded by 
-                the people we love the most. We can't wait to share this with you.
+                {t.landing.welcome.text}
               </p>
             </div>
 
@@ -304,14 +304,14 @@ const LandingPage = ({ setView }) => {
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
-                Transportation for UK Guests
+                {t.landing.transportation.title}
               </h3>
               <div className="space-y-3 text-gray-700 text-lg">
                 <p>
-                  We advise all UK guests to land at <strong>Henri Coandă International Airport (Otopeni)</strong> in Bucharest on <strong>Thursday, 25th June 2026</strong>.
+                  {t.landing.transportation.paragraph1} <strong>{t.landing.transportation.airport}</strong> {t.landing.transportation.paragraph2} <strong>{t.landing.transportation.date}</strong>.
                 </p>
                 <p className="bg-sage-50 p-4 rounded-md border border-sage-200">
-                  <strong>Group Transportation:</strong> We will provide a bus from Bucharest to Zabola Estate departing at <strong>11:00 AM on Friday, 26th June</strong>. Pick-up location details will be shared closer to the date.
+                  <strong>{t.landing.transportation.groupTitle}</strong> {t.landing.transportation.groupText} <strong>{t.landing.transportation.time}</strong>. {t.landing.transportation.details}
                 </p>
               </div>
             </div>
@@ -319,7 +319,7 @@ const LandingPage = ({ setView }) => {
             {/* Timeline */}
             <div className="mb-16 scroll-reveal">
               <h2 className="text-3xl font-heading text-sage-700 text-center mb-12">
-                Weekend Timeline
+                {t.landing.timeline.title}
               </h2>
 
               <div className="relative">
@@ -334,20 +334,20 @@ const LandingPage = ({ setView }) => {
                   <div className="timeline-content bg-white rounded-lg p-6 shadow-sm hover:shadow-md ml-8 md:ml-0">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
-                        Friday, 26th June
+                        {t.landing.timeline.friday.day}
                       </h3>
                       <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1 rounded-full uppercase tracking-wide w-fit">
-                        Casual
+                        {t.landing.timeline.friday.dresscode}
                       </span>
                     </div>
                     <div className="space-y-2 text-gray-700 text-lg">
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">Afternoon</span>
-                        <span>Arrival & Check-in</span>
+                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.friday.afternoon}</span>
+                        <span>{t.landing.timeline.friday.afternoonEvent}</span>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">Evening</span>
-                        <span>Welcome Evening & Garden Barbecue</span>
+                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.friday.evening}</span>
+                        <span>{t.landing.timeline.friday.eveningEvent}</span>
                       </div>
                     </div>
                   </div>
@@ -365,32 +365,32 @@ const LandingPage = ({ setView }) => {
                   <div className="timeline-content bg-gradient-to-br from-sage-50 to-white rounded-lg p-6 shadow-md hover:shadow-lg border border-sage-200 ml-8 md:ml-0">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
-                        Saturday, 27th June
+                        {t.landing.timeline.saturday.day}
                       </h3>
                       <span className="text-sm bg-sage-600 text-white px-3 py-1 rounded-full uppercase tracking-wide font-medium w-fit">
-                        Wedding Day
+                        {t.landing.timeline.saturday.dresscode}
                       </span>
                     </div>
                     <div className="space-y-2 text-gray-700 mb-4 text-lg">
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">Morning</span>
-                        <span>Brunch</span>
+                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.saturday.morning}</span>
+                        <span>{t.landing.timeline.saturday.morningEvent}</span>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">Afternoon</span>
-                        <span>Ceremony in the Garden</span>
+                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.saturday.afternoon}</span>
+                        <span>{t.landing.timeline.saturday.afternoonEvent}</span>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">Evening</span>
-                        <span>Reception & Party</span>
+                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.saturday.evening}</span>
+                        <span>{t.landing.timeline.saturday.eveningEvent}</span>
                       </div>
                     </div>
                     <div className="pt-3 border-t border-sage-200">
                       <p className="text-base text-gray-600 italic mb-3">
-                        <strong>Godparents:</strong> Ioana and Cristi Roman
+                        <strong>{t.landing.timeline.saturday.godparents}</strong> {t.landing.timeline.saturday.godparentsNames}
                       </p>
                       <div className="text-base bg-white px-3 py-2 rounded border border-sage-300">
-                        <strong>Dress Code:</strong> Black Tie Optional / Formal Attire
+                        <strong>{t.landing.timeline.saturday.dresscodeLabel}</strong> {t.landing.timeline.saturday.dresscodeText}
                       </div>
                     </div>
                   </div>
@@ -404,16 +404,16 @@ const LandingPage = ({ setView }) => {
                   <div className="timeline-content bg-white rounded-lg p-6 shadow-sm hover:shadow-md ml-8 md:ml-0">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
-                        Sunday, 28th June
+                        {t.landing.timeline.sunday.day}
                       </h3>
                       <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1 rounded-full uppercase tracking-wide w-fit">
-                        Casual
+                        {t.landing.timeline.sunday.dresscode}
                       </span>
                     </div>
                     <div className="space-y-2 text-gray-700 text-lg">
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">Morning</span>
-                        <span>Farewell Brunch</span>
+                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.sunday.morning}</span>
+                        <span>{t.landing.timeline.sunday.morningEvent}</span>
                       </div>
                     </div>
                   </div>
@@ -424,28 +424,28 @@ const LandingPage = ({ setView }) => {
             {/* Dress Code */}
             <div className="mb-4 scroll-reveal">
               <h2 className="text-3xl font-heading text-sage-700 text-center mb-8">
-                Dress Code
+                {t.landing.dresscode.title}
               </h2>
               
               <div className="space-y-6">
                 <div className="bg-white rounded-lg p-6 shadow-sm scroll-reveal">
                   <h3 className="text-xl font-serif text-sage-700 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
-                    Friday & Sunday — Casual
+                    {t.landing.dresscode.casual.title}
                   </h3>
                   <p className="text-gray-700 text-lg">
-                    Comfortable attire for garden activities and relaxed meals. Think smart casual with a touch of elegance—perfect for enjoying the estate's natural beauty.
+                    {t.landing.dresscode.casual.text}
                   </p>
                 </div>
 
                 <div className="bg-sage-50 rounded-lg p-6 shadow-sm border border-sage-300 scroll-reveal">
                   <h3 className="text-xl font-serif text-sage-700 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
-                    Saturday (Wedding Day) — Black Tie Optional / Formal Attire
+                    {t.landing.dresscode.formal.title}
                   </h3>
                   <p className="text-gray-700 mb-3 text-lg">
-                    Floor-length gowns or elegant cocktail dresses. Tuxedos or dark suits. Think sophisticated garden celebration in a historic Transylvanian estate.
+                    {t.landing.dresscode.formal.text}
                   </p>
                   <p className="text-base text-gray-600 italic">
-                    The ceremony and reception will be held outdoors in the gardens—please consider footwear accordingly.
+                    {t.landing.dresscode.formal.note}
                   </p>
                 </div>
               </div>
@@ -459,16 +459,16 @@ const LandingPage = ({ setView }) => {
                 </svg>
               </div>
               <h3 className="text-3xl font-serif text-sage-700 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
-                Will You Join Us?
+                {t.landing.finalCta.title}
               </h3>
               <p className="text-gray-600 mb-6 text-lg">
-                Please let us know if you'll be able to celebrate with us
+                {t.landing.finalCta.subtitle}
               </p>
               <button
                 onClick={() => setView('rsvp')}
                 className="bg-sage-600 text-white px-10 py-4 rounded-md hover:bg-sage-700 transition-colors shadow-md text-lg font-medium"
               >
-                RSVP Now
+                {t.landing.finalCta.button}
               </button>
             </div>
 
