@@ -132,6 +132,22 @@ const RSVPForm = ({ setView }) => {
           }
         }
 
+        /*Radio Input Colors*/
+        input[type="radio"]:checked {
+          background-color: #67844c;
+          border-color: #67844c;
+          accent-color: #67844c; /* This is the key property for radio buttons! */
+        }
+
+        input[type="radio"]:focus {
+          outline-color: #67844c;
+          border-color: #67844c;
+          --tw-ring-color: #67844c;
+        }
+
+        input[type="radio"] {
+          accent-color: #67844c; /* Apply to all radio buttons */
+        }
         /* Buttons - Scale and glow */
         @keyframes scaleInGlow {
           0% {
@@ -338,16 +354,16 @@ const RSVPForm = ({ setView }) => {
       <div className="particle"></div>
       <div className="particle"></div>
 
-      <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 relative">
+      <div className="bg-white rounded-lg shadow-lg p-4 md:p-8 relative">
         {/* Mobile: Centered Header (< 768px) */}
         <div className="md:hidden text-center mb-6">
-          <div className={`flex justify-center mb-4 fade-leaf ${isVisible ? 'visible' : ''}`}>
+          <div className={`flex justify-center fade-leaf ${isVisible ? 'visible' : ''}`}>
             <div className="scale-75">
               <LeafAnimation size="large" variant="horizontal" />
             </div>
           </div>
           
-          <h1 className={`text-2xl font-heading text-sage-700 mb-3 fade-title ${isVisible ? 'visible' : ''}`}>
+          <h1 className={`text-5xl font-normal text-sage-700 mb-3 fade-title ${isVisible ? 'visible' : ''}`}>
             {t.rsvp.title}
           </h1>
           
@@ -367,22 +383,22 @@ const RSVPForm = ({ setView }) => {
           
           {/* Left Column - Header (Desktop Only) */}
           <div className="hidden md:flex md:flex-col md:items-center md:justify-center text-center">
-            <div className="w-full max-w-md">
-              <div className={`flex justify-center mb-8 fade-leaf ${isVisible ? 'visible' : ''}`}>
-                <LeafAnimation size="large" variant="horizontal" />
+            <div className="w-full max-w-md pb-12">
+              <div className={`flex justify-center mb-2 fade-leaf ${isVisible ? 'visible' : ''}`}>
+                <LeafAnimation size="xlarge" variant="horizontal" />
               </div>
               
-              <h1 className={`text-3xl md:text-4xl font-heading text-sage-700 mb-4 fade-title ${isVisible ? 'visible' : ''}`} style={{ fontFamily: 'Georgia, serif' }}>
+              <h1 className={`text-7xl font-normal text-sage-700 mb-4 fade-title ${isVisible ? 'visible' : ''}`}>
                 {t.rsvp.title}
               </h1>
               
-              <p className={`text-gray-600 text-lg mb-6 fade-subtitle ${isVisible ? 'visible' : ''}`}>
+              <p className={`text-gray-600 text-lg mb-4 fade-subtitle ${isVisible ? 'visible' : ''}`}>
                 {t.rsvp.subtitle}
               </p>
               
               <div className={`flex items-center justify-center gap-3 fade-date ${isVisible ? 'visible' : ''}`}>
                 <div className="h-px w-16 bg-sage-300"></div>
-                <p className="text-sm text-sage-600 whitespace-nowrap">{t.rsvp.dates}</p>
+                <p className="text-sage-600 whitespace-nowrap">{t.rsvp.dates}</p>
                 <div className="h-px w-16 bg-sage-300"></div>
               </div>
             </div>

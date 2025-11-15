@@ -264,7 +264,6 @@ const PasswordProtection = ({ children }) => {
 
           button:hover {
             transform: scale(1.02);
-            
             transition: all 0.3s ease;
           }
 
@@ -279,7 +278,6 @@ const PasswordProtection = ({ children }) => {
 
           .language-button:hover {
             transform: scale(1.05);
-            
           }
 
           .language-button:active {
@@ -313,8 +311,8 @@ const PasswordProtection = ({ children }) => {
           
           {/* Names - Dramatic entrance from top with bounce */}
           <h1 
-            className={`text-3xl md:text-4xl font-serif text-sage-700 mb-4 fade-names ${isVisible ? 'visible' : ''}`}
-            style={{ fontFamily: 'Georgia, serif' }}
+            className={`text-2xl md:text-3xl font-heading text-sage-700 mb-8 fade-names ${isVisible ? 'visible' : ''}`}
+            
           >
             {t.password.names}
           </h1>
@@ -356,7 +354,7 @@ const PasswordProtection = ({ children }) => {
 
           {/* Language Selection */}
           <div className={`fade-language ${isVisible ? 'visible' : ''}`}>
-            <p className="text-xs text-gray-500 mb-4 uppercase tracking-wide">
+            <p className="text-sm text-gray-500 mb-4 uppercase tracking-wide">
               Choose Language / Alege Limba
             </p>
             <div className="flex justify-center gap-6">
@@ -370,14 +368,14 @@ const PasswordProtection = ({ children }) => {
                 }`}
                 aria-label="Switch to English"
               >
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-4xl transition-all ${
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl  transition-all ${
                   language === 'en'
-                    ? 'bg-sage-100 ring-3 ring-sage-600 shadow-lg'
-                    : 'bg-white shadow-md'
+                    ? 'bg-sage-100 ring-3 ring-sage-600 shadow-lg text-sage-700'
+                    : 'bg-white shadow-md text-gray-600'
                 }`}>
-                  🇬🇧
+                  EN
                 </div>
-                <span className={`text-sm font-medium transition-colors ${
+                <span className={`text-md font-medium transition-colors ${
                   language === 'en' 
                     ? 'text-sage-700' 
                     : 'text-gray-600'
@@ -396,14 +394,14 @@ const PasswordProtection = ({ children }) => {
                 }`}
                 aria-label="Comută la Română"
               >
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-4xl transition-all ${
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl transition-all ${
                   language === 'ro'
-                    ? 'bg-sage-100 ring-3 ring-sage-600 shadow-lg'
-                    : 'bg-white shadow-md'
+                    ? 'bg-sage-100 ring-3 ring-sage-600 shadow-lg text-sage-700'
+                    : 'bg-white shadow-md text-gray-600'
                 }`}>
-                  🇷🇴
+                  RO
                 </div>
-                <span className={`text-sm font-medium transition-colors ${
+                <span className={`text-md font-medium transition-colors ${
                   language === 'ro' 
                     ? 'text-sage-700' 
                     : 'text-gray-600'

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Send, Home, Lock, X } from 'lucide-react';
+import { Send, Home, Lock, X, Globe } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Navigation = ({ currentView, setView }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language, changeLanguage } = useLanguage();
 
   const handleNavClick = (view) => {
     setView(view);
@@ -36,12 +36,12 @@ const Navigation = ({ currentView, setView }) => {
 
       {/* Side Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Menu Header */}
-        <div className="p-6 border-b border-sage-200 flex justify-between items-center">
+        <div className="p-6 border-b border-sage-200 flex justify-between items-center flex-shrink-0">
           <h2 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
             {t.nav.menu}
           </h2>
@@ -54,8 +54,8 @@ const Navigation = ({ currentView, setView }) => {
           </button>
         </div>
 
-        {/* Menu Items */}
-        <nav className="p-6">
+        {/* Menu Items - Scrollable middle section */}
+        <nav className="flex-1 overflow-y-auto p-6">
           <ul className="space-y-2">
             <li>
               <button
@@ -99,8 +99,45 @@ const Navigation = ({ currentView, setView }) => {
           </ul>
         </nav>
 
-        {/* Menu Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-sage-200">
+        {/* Language Selector - Fixed above footer */}
+        <div className="flex-shrink-0 px-6 py-4 border-t border-sage-200 bg-sage-50/30">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 text-gray-600">
+              <Globe size={18} />
+              <span className="text-sm font-medium">{language === 'en' ? 'Language' : 'Limba'}</span>
+            </div>
+            <div className="flex gap-2">
+              {/* English Button */}
+              <button
+                onClick={() => changeLanguage('en')}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                  language === 'en'
+                    ? 'bg-sage-600 text-white shadow-md'
+                    : 'bg-white text-gray-600 hover:bg-sage-50 border border-sage-200'
+                }`}
+                aria-label="Switch to English"
+              >
+                EN
+              </button>
+
+              {/* Romanian Button */}
+              <button
+                onClick={() => changeLanguage('ro')}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                  language === 'ro'
+                    ? 'bg-sage-600 text-white shadow-md'
+                    : 'bg-white text-gray-600 hover:bg-sage-50 border border-sage-200'
+                }`}
+                aria-label="Comută la Română"
+              >
+                RO
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Menu Footer - Fixed at bottom */}
+        <div className="flex-shrink-0 p-6 border-t border-sage-200">
           <div className="text-center">
             <p className="text-sm text-gray-500 mb-1">{t.nav.footer.text}</p>
             <p className="text-sage-700 font-serif text-lg" style={{ fontFamily: 'Georgia, serif' }}>

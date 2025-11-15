@@ -5,7 +5,6 @@ import RSVPForm from './components/RSVPForm';
 import LandingPage from './components/LandingPage';
 import AdminDashboard from './components/AdminDashboard';
 import PasswordProtection from './components/PasswordProtection';
-import LanguageToggle from './components/LanguageToggle';
 
 function App() {
   const [view, setView] = useState('rsvp');
@@ -14,7 +13,6 @@ function App() {
     <LanguageProvider>
       <PasswordProtection>
         <div className="min-h-screen bg-cream-200">
-          <LanguageToggle />
           <Navigation currentView={view} setView={setView} />
           
           {view === 'rsvp' && <RSVPForm setView={setView} />}
