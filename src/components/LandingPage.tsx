@@ -89,7 +89,7 @@ const LandingPage = ({ setView }) => {
           }
         }
 
-        /* Text shimmer effect for names - Fixed to not cut text */
+        /* Text shimmer effect for names */
         @keyframes shimmer {
           0% {
             text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3);
@@ -103,7 +103,7 @@ const LandingPage = ({ setView }) => {
         }
 
         .names-text {
-          color: white;
+          color: #f8f5ee;
           animation: shimmer 3s ease-in-out infinite;
         }
 
@@ -161,46 +161,220 @@ const LandingPage = ({ setView }) => {
           transform: translateY(0);
         }
 
-        .scroll-reveal-left {
-          opacity: 0;
-          transform: translateX(-30px);
-          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        /* Enhanced Timeline Styles with Wow Factor */
+        .timeline-container {
+          position: relative;
         }
 
-        .scroll-reveal-left.reveal-visible {
-          opacity: 1;
-          transform: translateX(0);
+        /* Animated gradient line */
+        .timeline-line {
+          position: absolute;
+          left: 20px;
+          top: 0;
+          bottom: 0;
+          width: 2px;
+          background: linear-gradient(
+            to bottom,
+            rgba(103, 132, 103, 0.1) 0%,
+            rgba(103, 132, 103, 0.6) 20%,
+            rgba(103, 132, 103, 0.8) 50%,
+            rgba(103, 132, 103, 0.6) 80%,
+            rgba(103, 132, 103, 0.1) 100%
+          );
         }
 
-        /* Timeline Styles */
+        @media (min-width: 768px) {
+          .timeline-line {
+            left: 32px;
+            width: 3px;
+          }
+        }
+
+        /* Glowing line effect */
+        .timeline-line::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -4px;
+          right: -4px;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(103, 132, 103, 0.2) 50%,
+            transparent 100%
+          );
+          filter: blur(8px);
+          animation: timelineGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes timelineGlow {
+          0%, 100% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 0.8;
+          }
+        }
+
+        /* Timeline item animations */
         .timeline-item {
           position: relative;
-          padding-left: 0;
-          transition: all 0.3s ease;
+          padding-left: 60px;
+          margin-bottom: 3rem;
         }
 
         @media (min-width: 768px) {
           .timeline-item {
-            padding-left: 4rem;
+            padding-left: 100px;
           }
         }
 
-        .timeline-item:hover .timeline-content {
-          transform: translateX(5px);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .timeline-item.reveal-visible .timeline-dot {
+          animation: dotPulse 0.8s ease-out forwards;
         }
 
+        .timeline-item.reveal-visible .timeline-content {
+          animation: contentSlideIn 0.8s ease-out forwards;
+        }
+
+        @keyframes dotPulse {
+          0% {
+            transform: scale(0);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.3);
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes contentSlideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        /* Enhanced dot styles */
         .timeline-dot {
-          transition: all 0.3s ease;
+          position: absolute;
+          left: 12px;
+          top: 28px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: white;
+          border: 3px solid #67844c;
+          box-shadow: 
+            0 0 0 4px rgba(103, 132, 103, 0.1),
+            0 4px 12px rgba(103, 132, 103, 0.3);
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          z-index: 2;
         }
 
-        .timeline-item:hover .timeline-dot {
-          transform: scale(1.2);
-          box-shadow: 0 0 0 8px rgba(103, 132, 103, 0.1);
+        @media (min-width: 768px) {
+          .timeline-dot {
+            left: 24px;
+            width: 20px;
+            height: 20px;
+          }
         }
 
+        /* Wedding day special dot */
+        .timeline-dot-wedding {
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(135deg, #67844c 0%, #52683d 100%);
+          border: 3px solid white;
+          box-shadow: 
+            0 0 0 4px rgba(103, 132, 103, 0.2),
+            0 0 20px rgba(103, 132, 103, 0.4),
+            0 4px 16px rgba(103, 132, 103, 0.5);
+          animation: weddingPulse 2s ease-in-out infinite;
+        }
+
+        @media (min-width: 768px) {
+          .timeline-dot-wedding {
+            left: 21px;
+            width: 28px;
+            height: 28px;
+          }
+        }
+
+        @keyframes weddingPulse {
+          0%, 100% {
+            box-shadow: 
+              0 0 0 4px rgba(103, 132, 103, 0.2),
+              0 0 20px rgba(103, 132, 103, 0.4),
+              0 4px 16px rgba(103, 132, 103, 0.5);
+          }
+          50% {
+            box-shadow: 
+              0 0 0 8px rgba(103, 132, 103, 0.3),
+              0 0 30px rgba(103, 132, 103, 0.6),
+              0 4px 20px rgba(103, 132, 103, 0.6);
+          }
+        }
+
+        /* Star icon in wedding dot */
+        .wedding-star {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          width: 12px;
+          height: 12px;
+        }
+
+        @media (min-width: 768px) {
+          .wedding-star {
+            width: 14px;
+            height: 14px;
+          }
+        }
+
+        /* Enhanced content cards */
         .timeline-content {
-          transition: all 0.3s ease;
+          background: white;
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 
+            0 1px 3px rgba(0, 0, 0, 0.05),
+            0 4px 12px rgba(103, 132, 103, 0.08);
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          border: 1px solid rgba(103, 132, 103, 0.1);
+        }
+
+        .timeline-content:hover {
+          transform: translateY(-4px) translateX(8px);
+          box-shadow: 
+            0 8px 24px rgba(103, 132, 103, 0.15),
+            0 4px 12px rgba(0, 0, 0, 0.08);
+          border-color: rgba(103, 132, 103, 0.2);
+        }
+
+        /* Wedding day special card */
+        .timeline-content-wedding {
+          background: linear-gradient(135deg, #f6f7f4 0%, white 100%);
+          border: 1.5px solid rgba(103, 132, 103, 0.2);
+          box-shadow: 
+            0 4px 16px rgba(103, 132, 103, 0.12),
+            0 8px 32px rgba(103, 132, 103, 0.08);
+        }
+
+        .timeline-content-wedding:hover {
+          box-shadow: 
+            0 12px 32px rgba(103, 132, 103, 0.2),
+            0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
         /* Floating animation for heart icon */
@@ -216,19 +390,6 @@ const LandingPage = ({ setView }) => {
         .float-animation {
           animation: float 3s ease-in-out infinite;
         }
-
-        /* Staggered fade for timeline items */
-        .timeline-item:nth-child(1) {
-          transition-delay: 0.1s;
-        }
-
-        .timeline-item:nth-child(2) {
-          transition-delay: 0.2s;
-        }
-
-        .timeline-item:nth-child(3) {
-          transition-delay: 0.3s;
-        }
       `}</style>
 
       {/* Desktop: Two Column Layout */}
@@ -241,11 +402,11 @@ const LandingPage = ({ setView }) => {
             className="w-full h-64 lg:h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <div className="text-center text-white px-8">
-              <h1 className={`text-3xl md:text-4xl lg:text-6xl font-serif mb-8 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
+            <div className="text-center text-cream-200 px-8">
+              <h1 className={`text-2xl md:text-5xl font-serif mb-4 md:mb-8 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
                 {t.landing.names}
               </h1>
-              <p className={`text-xl md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
+              <p className={`text-lg md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
                 {t.landing.tagline}
               </p>
             </div>
@@ -258,13 +419,12 @@ const LandingPage = ({ setView }) => {
             
             {/* Header Section */}
             <div className="text-center mt-1 mb-12">
-              {/* Animated Leaf - Horizontal variant */}
-              <div className={`mb-8 flex justify-center scale-75 md:scale-90 fade-header ${isVisible ? 'visible' : ''}`}>
-                  <LeafAnimation size="large" variant="inverted"/>
+              {/* Animated Leaf */}
+              <div className={`mb-6 flex justify-center scale-75 md:scale-90 fade-header ${isVisible ? 'visible' : ''}`}>
+                <LeafAnimation size="large" variant="inverted"/>
               </div>
-                          
               
-              <p className={`text-sage-700 font-heading text-2xl md:text-3xl mb-8 fade-content ${isVisible ? 'visible' : ''}`}>
+              <p className={`text-sage-700 font-normal text-3xl md:text-4xl mb-4 fade-content ${isVisible ? 'visible' : ''}`}>
                 {t.landing.saveDate}
               </p>
               
@@ -302,7 +462,7 @@ const LandingPage = ({ setView }) => {
             <div className="mb-16 bg-white rounded-lg p-6 md:p-8 shadow-sm scroll-reveal">
               <h3 className="text-3xl font-serif text-sage-700 mb-4 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                 </svg>
                 {t.landing.transportation.title}
               </h3>
@@ -316,37 +476,36 @@ const LandingPage = ({ setView }) => {
               </div>
             </div>
 
-            {/* Timeline */}
+            {/* Enhanced Timeline */}
             <div className="mb-16 scroll-reveal">
-              <h2 className="text-3xl font-heading text-sage-700 text-center mb-12">
+              <h2 className="text-3xl font-normal text-sage-700 text-center mb-16">
                 {t.landing.timeline.title}
               </h2>
 
-              <div className="relative">
-                {/* Timeline vertical line - minimal design */}
-                <div className="absolute left-4 md:left-8 top-4 bottom-4 w-px bg-gradient-to-b from-sage-300 via-sage-400 to-sage-300 hidden md:block"></div>
+              <div className="timeline-container relative">
+                {/* Animated gradient line */}
+                <div className="timeline-line"></div>
 
                 {/* Friday */}
-                <div className="timeline-item relative mb-8 scroll-reveal">
-                  {/* Minimal dot */}
-                  <div className="timeline-dot absolute left-2.5 md:left-6.5 top-6 w-3 h-3 rounded-full bg-sage-500 border-2 border-white shadow-md"></div>
+                <div className="timeline-item scroll-reveal">
+                  <div className="timeline-dot"></div>
                   
-                  <div className="timeline-content bg-white rounded-lg p-6 shadow-sm hover:shadow-md ml-8 md:ml-0">
+                  <div className="timeline-content">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                         {t.landing.timeline.friday.day}
                       </h3>
-                      <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1 rounded-full uppercase tracking-wide w-fit">
+                      <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide w-fit">
                         {t.landing.timeline.friday.dresscode}
                       </span>
                     </div>
-                    <div className="space-y-2 text-gray-700 text-lg">
+                    <div className="space-y-3 text-gray-700 text-lg">
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.friday.afternoon}</span>
-                        <span>{t.landing.timeline.friday.afternoonEvent}</span>
+                        <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.friday.arrival}</span>
+                        <span>{t.landing.timeline.friday.arrivalEvent}</span>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.friday.evening}</span>
+                        <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.friday.evening}</span>
                         <span>{t.landing.timeline.friday.eveningEvent}</span>
                       </div>
                     </div>
@@ -354,65 +513,63 @@ const LandingPage = ({ setView }) => {
                 </div>
 
                 {/* Saturday - Wedding Day */}
-                <div className="timeline-item relative mb-8 scroll-reveal">
-                  {/* Special dot with star for wedding day */}
-                  <div className="timeline-dot absolute left-1.5 md:left-5.5 top-6 w-5 h-5 rounded-full bg-sage-600 border-2 border-white shadow-lg flex items-center justify-center">
-                    <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div className="timeline-item scroll-reveal">
+                  <div className="timeline-dot timeline-dot-wedding">
+                    <svg className="wedding-star" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                   </div>
                   
-                  <div className="timeline-content bg-gradient-to-br from-sage-50 to-white rounded-lg p-6 shadow-md hover:shadow-lg border border-sage-200 ml-8 md:ml-0">
+                  <div className="timeline-content timeline-content-wedding">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                         {t.landing.timeline.saturday.day}
                       </h3>
-                      <span className="text-sm bg-sage-600 text-white px-3 py-1 rounded-full uppercase tracking-wide font-medium w-fit">
+                      <span className="text-sm bg-sage-600 text-white px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit shadow-md">
                         {t.landing.timeline.saturday.dresscode}
                       </span>
                     </div>
-                    <div className="space-y-2 text-gray-700 mb-4 text-lg">
+                    <div className="space-y-3 text-gray-700 mb-4 text-lg">
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.saturday.morning}</span>
+                        <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.saturday.morning}</span>
                         <span>{t.landing.timeline.saturday.morningEvent}</span>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.saturday.afternoon}</span>
+                        <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.saturday.afternoon}</span>
                         <span>{t.landing.timeline.saturday.afternoonEvent}</span>
                       </div>
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.saturday.evening}</span>
+                        <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.saturday.evening}</span>
                         <span>{t.landing.timeline.saturday.eveningEvent}</span>
                       </div>
                     </div>
-                    <div className="pt-3 border-t border-sage-200">
+                    <div className="pt-4 mt-4 border-t border-sage-200">
                       <p className="text-base text-gray-600 italic mb-3">
-                        <strong>{t.landing.timeline.saturday.godparents}</strong> {t.landing.timeline.saturday.godparentsNames}
+                        <strong className="text-sage-700">{t.landing.timeline.saturday.godparents}</strong> {t.landing.timeline.saturday.godparentsNames}
                       </p>
-                      <div className="text-base bg-white px-3 py-2 rounded border border-sage-300">
-                        <strong>{t.landing.timeline.saturday.dresscodeLabel}</strong> {t.landing.timeline.saturday.dresscodeText}
+                      <div className="text-base bg-white px-4 py-3 rounded-lg border border-sage-300 shadow-sm">
+                        <strong className="text-sage-700">{t.landing.timeline.saturday.dresscodeLabel}</strong> {t.landing.timeline.saturday.dresscodeText}
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Sunday */}
-                <div className="timeline-item relative scroll-reveal">
-                  {/* Minimal dot */}
-                  <div className="timeline-dot absolute left-2.5 md:left-6.5 top-6 w-3 h-3 rounded-full bg-sage-500 border-2 border-white shadow-md"></div>
+                <div className="timeline-item scroll-reveal">
+                  <div className="timeline-dot"></div>
                   
-                  <div className="timeline-content bg-white rounded-lg p-6 shadow-sm hover:shadow-md ml-8 md:ml-0">
+                  <div className="timeline-content">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                         {t.landing.timeline.sunday.day}
                       </h3>
-                      <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1 rounded-full uppercase tracking-wide w-fit">
+                      <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide w-fit">
                         {t.landing.timeline.sunday.dresscode}
                       </span>
                     </div>
-                    <div className="space-y-2 text-gray-700 text-lg">
+                    <div className="space-y-3 text-gray-700 text-lg">
                       <div className="flex items-start gap-3">
-                        <span className="text-sage-600 font-medium min-w-[80px]">{t.landing.timeline.sunday.morning}</span>
+                        <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.sunday.morning}</span>
                         <span>{t.landing.timeline.sunday.morningEvent}</span>
                       </div>
                     </div>
@@ -422,8 +579,8 @@ const LandingPage = ({ setView }) => {
             </div>
 
             {/* Dress Code */}
-            <div className="mb-4 scroll-reveal">
-              <h2 className="text-3xl font-heading text-sage-700 text-center mb-8">
+            <div className="mb-8 scroll-reveal">
+              <h2 className="text-3xl font-normal text-sage-700 text-center mb-8">
                 {t.landing.dresscode.title}
               </h2>
               
@@ -458,7 +615,7 @@ const LandingPage = ({ setView }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-serif text-sage-700 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
+              <h3 className="text-3xl font-normal text-sage-700 mb-4">
                 {t.landing.finalCta.title}
               </h3>
               <p className="text-gray-600 mb-6 text-lg">

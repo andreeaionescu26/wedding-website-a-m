@@ -65,70 +65,70 @@ export const translations = {
       rsvpButton: "RSVP Now",
       
       welcome: {
-        text: "Andreea and Marcus are getting married on Saturday, 27th of June 2026 at Zabola Estate. Join us for a weekend celebration from Friday to Sunday as we tie the knot, surrounded by the people we love the most. We can't wait to share this with you."
+        text: "We're tying the knot on Saturday, 27th June 2026 at Zabola Estate in the heart of Transylvania. Join us for a whole weekend of celebration, from Friday through to Sunday, surrounded by the people we cherish most. We truly can't wait to share these special moments with you."
       },
 
       transportation: {
-        title: "Transportation for UK Guests",
-        paragraph1: "We advise all UK guests to land at",
-        airport: "Henri Coandă International Airport (Otopeni)",
-        paragraph2: "in Bucharest on",
+        title: "Getting to Zabola",
+        paragraph1: "We recommend all UK guests fly into",
+        airport: "Bucharest Airport (Otopeni)",
+        paragraph2: "arriving on",
         date: "Thursday, 25th June 2026",
-        groupTitle: "Group Transportation:",
-        groupText: "We will provide a bus from Bucharest to Zabola Estate departing at",
+        groupTitle: "Complimentary Coach Service:",
+        groupText: "We'll be providing a coach from Bucharest to Zabola Estate, departing at",
         time: "11:00 AM on Friday, 26th June",
-        details: "Pick-up location details will be shared closer to the date."
+        details: "We'll share the exact pick-up location closer to the date."
       },
 
       timeline: {
-        title: "Weekend Timeline",
+        title: "Your Weekend with Us",
         friday: {
           day: "Friday, 26th June",
           dresscode: "Casual",
-          afternoon: "Afternoon",
-          afternoonEvent: "Arrival & Check-in",
-          evening: "Evening",
-          eveningEvent: "Welcome Evening & Garden Barbecue"
+          arrival: "From 2:00 PM",
+          arrivalEvent: "Arrive & settle in at the estate",
+          evening: "6:00 PM",
+          eveningEvent: "Welcome drinks & garden barbecue"
         },
         saturday: {
           day: "Saturday, 27th June",
           dresscode: "Wedding Day",
           morning: "Morning",
-          morningEvent: "Brunch",
-          afternoon: "Afternoon",
-          afternoonEvent: "Ceremony in the Garden",
+          morningEvent: "Leisurely brunch",
+          afternoon: "3:30 PM",
+          afternoonEvent: "Garden ceremony",
           evening: "Evening",
-          eveningEvent: "Reception & Party",
-          godparents: "Godparents:",
+          eveningEvent: "Reception & celebrations",
+          godparents: "Our nași:",
           godparentsNames: "Ioana and Cristi Roman",
-          dresscodeLabel: "Dress Code:",
-          dresscodeText: "Black Tie Optional / Formal Attire"
+          dresscodeLabel: "What to wear:",
+          dresscodeText: "Black tie optional – think elegant garden party"
         },
         sunday: {
           day: "Sunday, 28th June",
           dresscode: "Casual",
           morning: "Morning",
-          morningEvent: "Farewell Brunch"
+          morningEvent: "Farewell brunch"
         }
       },
 
       dresscode: {
-        title: "Dress Code",
+        title: "What to Wear",
         casual: {
-          title: "Friday & Sunday — Casual",
-          text: "Comfortable attire for garden activities and relaxed meals. Think smart casual with a touch of elegance—perfect for enjoying the estate's natural beauty."
+          title: "Friday & Sunday — Relaxed & Comfortable",
+          text: "Think smart casual with a hint of elegance. Perfect for strolling through the gardens, enjoying meals together, and soaking in the beauty of the estate."
         },
         formal: {
-          title: "Saturday (Wedding Day) — Black Tie Optional / Formal Attire",
-          text: "Floor-length gowns or elegant cocktail dresses. Tuxedos or dark suits. Think sophisticated garden celebration in a historic Transylvanian estate.",
-          note: "The ceremony and reception will be held outdoors in the gardens—please consider footwear accordingly."
+          title: "Saturday (The Big Day) — Dress to Impress",
+          text: "Ladies, floor-length gowns or chic cocktail dresses. Gents, black tie or your smartest dark suit. Imagine an elegant garden celebration in a historic Transylvanian manor.",
+          note: "We'll be outdoors in the gardens for the ceremony and reception, so please choose your footwear accordingly!"
         }
       },
 
       finalCta: {
         title: "Will You Join Us?",
-        subtitle: "Please let us know if you'll be able to celebrate with us",
-        button: "RSVP Now"
+        subtitle: "We'd love to know if you can make it",
+        button: "Let Us Know"
       }
     },
 
@@ -227,77 +227,77 @@ export const translations = {
     landing: {
       names: "Andreea & Marcus",
       tagline: "Ne căsătorim!",
-      saveDate: "Rezervă Data",
+      saveDate: "Ține Minte",
       dates: "26-28 Iunie 2026",
       venue: "Conacul Zabola",
       location: "Transilvania, România",
       rsvpButton: "Confirmă Prezența",
       
       welcome: {
-        text: "Andreea și Marcus se căsătoresc sâmbătă, 27 iunie 2026 la Conacul Zabola. Alătură-te nouă pentru o sărbătoare de weekend de vineri până duminică, în timp ce ne unim destinele, înconjurați de oamenii pe care îi iubim cel mai mult. Abia așteptăm să împărțim asta cu tine."
+        text: "Ne unim destinele sâmbătă, 27 iunie 2026, la Conacul Zabola din inima Transilvaniei. Vino alături de noi pentru un întreg weekend de sărbătoare, de vineri până duminică, înconjurați de cei dragi. Abia așteptăm să împărțim aceste momente speciale cu tine."
       },
 
       transportation: {
-        title: "Transport pentru Invitații din UK",
-        paragraph1: "Sfătuim toți invitații din UK să aterizeze la",
-        airport: "Aeroportul Internațional Henri Coandă (Otopeni)",
-        paragraph2: "în București pe",
-        date: "joi, 25 iunie 2026",
-        groupTitle: "Transport de Grup:",
-        groupText: "Vom asigura un autocar de la București la Conacul Zabola cu plecare la",
-        time: "ora 11:00 vineri, 26 iunie",
-        details: "Detaliile despre locația de îmbarcare vor fi comunicate mai aproape de dată."
+        title: "Cum Ajungi la Zabola",
+        paragraph1: "Recomandăm tuturor invitaților din UK să ajungă la",
+        airport: "Aeroportul București (Otopeni)",
+        paragraph2: "joi,",
+        date: "25 iunie 2026",
+        groupTitle: "Transport Gratuit cu Autocarul:",
+        groupText: "Punem la dispoziție un autocar de la București la Conacul Zabola, cu plecare la",
+        time: "ora 11:00, vineri, 26 iunie",
+        details: "Locația exactă de îmbarcare va fi comunicată mai aproape de dată."
       },
 
       timeline: {
-        title: "Programul Weekend-ului",
+        title: "Weekend-ul Alături de Noi",
         friday: {
           day: "Vineri, 26 Iunie",
           dresscode: "Casual",
-          afternoon: "După-amiază",
-          afternoonEvent: "Sosire & Check-in",
-          evening: "Seară",
-          eveningEvent: "Seară de Bun Venit & Grătar în Grădină"
+          arrival: "De la ora 14:00",
+          arrivalEvent: "Sosire și cazare la conac",
+          evening: "Ora 18:00",
+          eveningEvent: "Cocktail de bun venit și grătar în grădină"
         },
         saturday: {
           day: "Sâmbătă, 27 Iunie",
           dresscode: "Ziua Nunții",
           morning: "Dimineață",
-          morningEvent: "Brunch",
-          afternoon: "După-amiază",
-          afternoonEvent: "Ceremonia în Grădină",
+          morningEvent: "Brunch relaxant",
+          afternoon: "Ora 15:30",
+          afternoonEvent: "Ceremonia în grădină",
           evening: "Seară",
-          eveningEvent: "Recepție & Petrecere",
-          godparents: "Nași:",
+          eveningEvent: "Petrecere și sărbătoare",
+          godparents: "Nașii noștri:",
           godparentsNames: "Ioana și Cristi Roman",
-          dresscodeLabel: "Cod Vestimentar:",
-          dresscodeText: "Black Tie Opțional / Ținută Formală"
+          dresscodeLabel: "Cum vă îmbrăcați:",
+          dresscodeText: "Ținută elegantă – gândiți-vă la o petrecere sofisticată în grădină"
         },
         sunday: {
           day: "Duminică, 28 Iunie",
           dresscode: "Casual",
           morning: "Dimineață",
-          morningEvent: "Brunch de Rămas Bun"
+          morningEvent: "Brunch de rămas bun"
         }
       },
 
       dresscode: {
-        title: "Cod Vestimentar",
+        title: "Cum Vă Îmbrăcați",
         casual: {
-          title: "Vineri & Duminică — Casual",
-          text: "Ținută confortabilă pentru activități în grădină și mese relaxate. Gândește-te la smart casual cu o notă de eleganță—perfect pentru a te bucura de frumusețea naturală a conacului."
+          title: "Vineri & Duminică — Relaxat & Confortabil",
+          text: "Gândiți-vă la smart casual cu o notă de eleganță. Perfect pentru plimbări prin grădini, mese împreună și pentru a vă bucura de frumusețea conacului."
         },
         formal: {
-          title: "Sâmbătă (Ziua Nunții) — Black Tie Opțional / Ținută Formală",
-          text: "Rochii lungi până la podea sau rochii cocktail elegante. Smoking sau costume închise la culoare. Gândește-te la o sărbătoare sofisticată în grădină într-un conac istoric din Transilvania.",
-          note: "Ceremonia și recepția vor avea loc în aer liber în grădini—te rugăm să iei în considerare încălțămintea în consecință."
+          title: "Sâmbătă (Marea Zi) — Eleganță la Superlativ",
+          text: "Doamnelor, rochii lungi sau rochii cocktail elegante. Domnilor, costum întunecat sau smoking. Imaginați-vă o petrecere elegantă în grădina unui conac istoric transilvănean.",
+          note: "Ceremonia și petrecerea vor fi în aer liber, în grădini, așa că vă rugăm să alegeți încălțămintea corespunzător!"
         }
       },
 
       finalCta: {
-        title: "Te Vei Alătura Nouă?",
-        subtitle: "Te rugăm să ne anunți dacă vei putea sărbători cu noi",
-        button: "Confirmă Prezența"
+        title: "Vii Alături de Noi?",
+        subtitle: "Ne-ar bucura enorm să știm dacă poți fi prezent",
+        button: "Anunță-ne"
       }
     },
 
