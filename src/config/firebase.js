@@ -1,15 +1,18 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore';;
 
-const firebaseConfig = { 
-  apiKey: "AIzaSyDb1fHu746wlMyoqIgec_S0xC1RSYJPDKY",
-  authDomain: "wedding-website-52be3.firebaseapp.com",
-  projectId: "wedding-website-52be3",
-  storageBucket: "wedding-website-52be3.firebasestorage.app",
-  messagingSenderId: "206846172947",
-  appId: "1:206846172947:web:8331b5d96b18a3eb0a04e6",
-  measurementId: "G-37Y3RDD291"
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBl5sWc_QP5lsmLkYBmxeFyyY1NtExgw14",
+  authDomain: "wedding-website-2026-a9de1.firebaseapp.com",
+  projectId: "wedding-website-2026-a9de1",
+  storageBucket: "wedding-website-2026-a9de1.firebasestorage.app",
+  messagingSenderId: "615864428692",
+  appId: "1:615864428692:web:25f7cdd70581a84851ec81",
+  measurementId: "G-269M8EM4JY"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
