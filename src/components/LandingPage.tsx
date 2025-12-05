@@ -344,7 +344,7 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
           <div className="text-center mt-1 mb-12">
             {/* Animated Leaf */}
             <div className={`mb-6 flex justify-center scale-75 md:scale-90 fade-header ${isVisible ? 'visible' : ''}`}>
-              <LeafAnimation size="large" variant="default"/>
+              <LeafAnimation size="large" variant="horizontal"/>
             </div>
             
             <p className={`text-sage-700 font-normal text-3xl md:text-4xl mb-4 fade-content ${isVisible ? 'visible' : ''}`}>
