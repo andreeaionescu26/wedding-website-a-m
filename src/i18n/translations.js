@@ -25,7 +25,7 @@ export const translations = {
       admin: "Admin Dashboard",
       footer: {
         text: "Join us for",
-        celebration: "A Weekend Celebration",
+        celebration: "Our Wedding",
         dates: "26-28 June 2026"
       }
     },
@@ -206,7 +206,7 @@ export const translations = {
       admin: "Panou Admin",
       footer: {
         text: "Alătură-te nouă pentru",
-        celebration: "O Sărbătoare de Weekend",
+        celebration: "Nunta Noastra",
         dates: "26-28 Iunie 2026"
       }
     },
