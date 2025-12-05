@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from './i18n/LanguageContext';
 import Navigation from './components/Navigation';
 import RSVPForm from './components/RSVPForm';
@@ -9,6 +9,11 @@ import PasswordProtection from './components/PasswordProtection';
 function App() {
   const [view, setView] = useState('rsvp');
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
+
+  // Scroll to top whenever view changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view]);
 
   return (
     <LanguageProvider>
