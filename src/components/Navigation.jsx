@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Send, Home, Lock, X, Globe } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const Navigation = ({ currentView, setView }) => {
+const Navigation = ({ currentView, setView, showBurgerMenu }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, language, changeLanguage } = useLanguage();
 
@@ -13,10 +13,12 @@ const Navigation = ({ currentView, setView }) => {
 
   return (
     <>
-      {/* Minimalistic Floating Burger Button */}
+      {/* Minimalistic Floating Burger Button - with fade in/out animation */}
       <button
         onClick={() => setIsMenuOpen(true)}
-        className="fixed top-6 left-6 w-14 h-14 rounded-full bg-white/50 backdrop-blur-sm hover:bg-white/80 flex items-center justify-center transition-all shadow-sm hover:shadow-md z-40 group"
+        className={`fixed top-6 left-6 w-14 h-14 rounded-full bg-white/50 backdrop-blur-sm hover:bg-white/80 flex items-center justify-center shadow-sm hover:shadow-md z-40 group transition-all duration-500 ${
+          showBurgerMenu ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+        }`}
         aria-label="Open menu"
       >
         <div className="flex flex-col gap-1.5">

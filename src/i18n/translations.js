@@ -54,6 +54,13 @@ export const translations = {
       nameError: "Please fill in all guest names"
     },
 
+    rsvpModal: {
+      thankYou: "Thank You!",
+      attending: "We can't wait to celebrate with you! It wouldn't be the same without you.",
+      notAttending: "We're sorry you can't make it, but we appreciate you letting us know. You'll be missed!",
+      button: "Find out more details"
+    },
+
     // Landing Page
     landing: {
       names: "Andreea & Marcus",
@@ -226,6 +233,13 @@ export const translations = {
       success: "Mulțumim! Confirmarea ta a fost trimisă cu succes. 🎉",
       error: "Trimiterea confirmării a eșuat. Te rugăm să încerci din nou sau să ne contactezi direct.",
       nameError: "Te rugăm să completezi toate numele invitaților"
+    },
+
+    rsvpModal: {
+      thankYou: "Mulțumim!",
+      attending: "Abia așteptăm să sărbătorim alături de tine!  Nu ar fi la fel fără tine.",
+      notAttending: "Ne pare rău că nu poți veni, dar îți mulțumim că ne-ai anunțat. O să ne fie dor de tine!",
+      button: "Aflta mai multe detalii despre nunta"
     },
 
     // Landing Page

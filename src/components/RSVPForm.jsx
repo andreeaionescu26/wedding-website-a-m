@@ -3,12 +3,16 @@ import { Plus, Trash2 } from 'lucide-react';
 import { submitRSVP } from '../utils/rsvpService';
 import { useLanguage } from '../i18n/LanguageContext';
 import LeafAnimation from './LeafAnimation';
+import RSVPSuccessModal from './RSVPSuccessModal';
 
 const RSVPForm = ({ setView }) => {
   const [guests, setGuests] = useState([{ name: '', menu: 'normal', attending: 'yes' }]);
   const [submitting, setSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useLanguage();
+  
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [hasAttendingGuests, setHasAttendingGuests] = useState(false);
 
   useEffect(() => {
     // Trigger fade-in animation
@@ -40,23 +44,30 @@ const RSVPForm = ({ setView }) => {
 
     setSubmitting(true);
 
+    const attendingCount = guests.filter(g => g.attending === 'yes').length;
     const rsvpData = {
       guests: guests,
       totalGuests: guests.length,
-      attendingCount: guests.filter(g => g.attending === 'yes').length
+      attendingCount: attendingCount
     };
 
     const result = await submitRSVP(rsvpData);
 
     if (result.success) {
-      alert(t.rsvp.success);
+      // Show modal instead of alert
+      setHasAttendingGuests(attendingCount > 0);
+      setShowSuccessModal(true);
       setGuests([{ name: '', menu: 'normal', attending: 'yes' }]);
-      setView('landing');
     } else {
       alert(t.rsvp.error);
     }
 
     setSubmitting(false);
+  };
+
+  const handleModalClose = () => {
+    setShowSuccessModal(false);
+    setView('landing');
   };
 
   return (
@@ -542,7 +553,13 @@ const RSVPForm = ({ setView }) => {
           </div>
         </div>
       </div>
-    </div>
+      {/* Success Modal */}
+      <RSVPSuccessModal 
+        isOpen={showSuccessModal}
+        onClose={handleModalClose}
+        hasAttendingGuests={hasAttendingGuests}
+      />
+    </div> 
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LeafAnimation from './LeafAnimation';
 
-const LandingPage = ({ setView }) => {
+const LandingPage = ({ setView, setShowBurgerMenu }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const { t } = useLanguage();
@@ -11,14 +11,35 @@ const LandingPage = ({ setView }) => {
     // Trigger initial fade-in
     setTimeout(() => setIsVisible(true), 100);
 
-    // Scroll event listener for scroll-reveal animations
+    // Scroll event listener for scroll-reveal animations AND burger menu visibility
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const scrollPosition = window.scrollY;
+      setScrollY(scrollPosition);
+      
+      // Show burger menu after scrolling past hero image (MOBILE ONLY)
+      const isMobile = window.innerWidth < 1024;
+      
+      if (isMobile) {
+        // On mobile: hide initially, show after scrolling past hero
+        const threshold = 200;
+        setShowBurgerMenu(scrollPosition > threshold);
+      } else {
+        // On desktop: always show
+        setShowBurgerMenu(true);
+      }
     };
 
+    // Initial check on mount
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleScroll); // Handle window resize
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [setShowBurgerMenu]);
 
   // Intersection Observer for scroll-reveal
   useEffect(() => {
@@ -303,11 +324,11 @@ const LandingPage = ({ setView }) => {
             className="w-full h-64 lg:h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <div className="text-center text-cream-200 px-8">
-              <h1 className={`text-2xl md:text-5xl font-serif mb-8 md:mb-8 text-cream-200 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
+            <div className="text-center text-cream-200 px-8 mb-14">
+              <h1 className={`text-2xl md:text-5xl font-serif mb-4 md:mb-8 text-cream-200 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
                 {t.landing.names}
               </h1>
-             <p className={`hidden md:block text-md md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
+             <p className={` text-md md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
                 {t.landing.tagline}
               </p> 
             </div>
@@ -321,8 +342,8 @@ const LandingPage = ({ setView }) => {
             {/* Header Section */}
             <div className="text-center mt-1 mb-12">
               {/* Animated Leaf */}
-              <div className={`mb-6 flex justify-center scale-75 md:scale-90 fade-header ${isVisible ? 'visible' : ''}`}>
-                <LeafAnimation size="large" variant="inverted"/>
+              <div className={`mb-6 flex justify-center scale-65 md:scale-90 fade-header ${isVisible ? 'visible' : ''}`}>
+                <LeafAnimation size="large" variant="default"/>
               </div>
               
               <p className={`text-sage-700 font-normal text-3xl md:text-4xl mb-4 fade-content ${isVisible ? 'visible' : ''}`}>
@@ -409,7 +430,7 @@ const LandingPage = ({ setView }) => {
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                         {t.landing.timeline.friday.day}
                       </h3>
-                      <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
+                      <span className="hidden md:block text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
                         {t.landing.timeline.friday.dresscode}
                       </span>
                     </div>
@@ -474,7 +495,7 @@ const LandingPage = ({ setView }) => {
                       <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                         {t.landing.timeline.sunday.day}
                       </h3>
-                      <span className="text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
+                      <span className="hidden md:block text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
                         {t.landing.timeline.sunday.dresscode}
                       </span>
                     </div>
