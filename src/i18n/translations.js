@@ -80,6 +80,11 @@ export const translations = {
         details: "Pick-up location details will be shared closer to the date."
       },
 
+      accommodation: {
+        title: "Accommodation",
+        text: "All accommodation will be booked and handled by us, so you don't need to book anything. Specific details regarding room arrangements will be shared with each family or couple closer to the wedding date."
+      },
+
       timeline: {
         title: "Weekend Timeline",
         friday: {
@@ -234,19 +239,24 @@ export const translations = {
       rsvpButton: "Confirmă Prezența",
       
       welcome: {
-        text: "Andreea și Marcus se căsătoresc sâmbătă, 27 iunie 2026 la Conacul Zabola. Alătură-te nouă pentru o sărbătoare de weekend de vineri până duminică, în timp ce ne unim destinele, înconjurați de oamenii pe care îi iubim cel mai mult. Abia așteptăm să împărțim asta cu tine."
+        text: "Andreea și Marcus se căsătoresc sâmbătă, 27 iunie 2026 la Conacul Zabola. Alătură-te nouă pentru acest eveniment special de vineri până duminică înconjurați de oamenii pe care îi iubim cel mai mult. Abia așteptăm să împărtasim acest moment cu tine."
       },
 
       transportation: {
         title: "Transport pentru Invitații din UK",
         paragraph1: "Sfătuim toți invitații din UK să aterizeze la",
         airport: "Aeroportul Internațional Henri Coandă (Otopeni)",
-        paragraph2: "în București pe",
+        paragraph2: "în București cel mai tarziu",
         date: "joi, 25 iunie 2026",
         groupTitle: "Transport de Grup:",
         groupText: "Vom asigura un autocar de la București la Conacul Zabola cu plecare",
         time: "vineri dimineata, 26 iunie",
-        details: "Detaliile despre locația de îmbarcare vor fi comunicate mai aproape de dată."
+        details: "Detaliile despre locul si timpul de placare vor fi comunicate mai aproape de dată."
+      },
+
+      accommodation: {
+        title: "Cazare",
+        text: "Toată cazarea va fi rezervată și gestionată de noi, așa că nu trebuie să rezervați nimic. Detaliile specifice privind aranjamentele camerelor vor fi comunicate fiecărei familii sau cuplu mai aproape de data nunții."
       },
 
       timeline: {
@@ -289,7 +299,7 @@ export const translations = {
         },
         formal: {
           title: "Sâmbătă (Ziua Nunții) — Black Tie Opțional / Ținută Formală",
-          text: "Doamne: rochii de seară elegante sau rochii cocktail sofisticate. Domni: black tie, smoking, sau costume întunecat elegante.",
+          text: "Doamne: rochii de seară elegante sau rochii cocktail sofisticate. Domni: black tie, smoking sau costume elegante.",
           note: "Ceremonia și recepția vor avea loc în aer liber în grădini—te rugăm să iei în considerare încălțămintea în consecință."
         }
       },

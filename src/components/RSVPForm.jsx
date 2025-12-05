@@ -359,7 +359,7 @@ const RSVPForm = ({ setView }) => {
         <div className="md:hidden text-center mb-6">
           <div className={`flex justify-center fade-leaf ${isVisible ? 'visible' : ''}`}>
             <div className="scale-75">
-              <LeafAnimation size="large" variant="horizontal" />
+              <LeafAnimation size="xlarge" variant="horizontal" />
             </div>
           </div>
           
@@ -385,7 +385,7 @@ const RSVPForm = ({ setView }) => {
           <div className="hidden md:flex md:flex-col md:items-center md:justify-center text-center">
             <div className="w-full max-w-md pb-12">
               <div className={`flex justify-center mb-2 fade-leaf ${isVisible ? 'visible' : ''}`}>
-                <LeafAnimation size="xlarge" variant="horizontal" />
+                <LeafAnimation size="large" variant="horizontal" />
               </div>
               
               <h1 className={`text-7xl font-normal text-sage-700 mb-4 fade-title ${isVisible ? 'visible' : ''}`}>

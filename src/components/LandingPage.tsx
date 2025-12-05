@@ -304,12 +304,12 @@ const LandingPage = ({ setView }) => {
           />
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
             <div className="text-center text-cream-200 px-8">
-              <h1 className={`text-3xl md:text-5xl font-serif mb-4 md:mb-8 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
+              <h1 className={`text-2xl md:text-5xl font-serif mb-8 md:mb-8 text-cream-200 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
                 {t.landing.names}
               </h1>
-              <p className={`text-xl md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
+             <p className={`hidden md:block text-md md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
                 {t.landing.tagline}
-              </p>
+              </p> 
             </div>
           </div>
         </div>
@@ -375,6 +375,19 @@ const LandingPage = ({ setView }) => {
                   <strong>{t.landing.transportation.groupTitle}</strong> {t.landing.transportation.groupText} <strong>{t.landing.transportation.time}</strong>. {t.landing.transportation.details}
                 </p>
               </div>
+            </div>
+
+            {/* Accommodation Info */}
+            <div className="mb-16 bg-white rounded-lg p-6 md:p-8 shadow-sm scroll-reveal">
+              <h3 className="text-2xl font-serif text-sage-700 mb-4 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                {t.landing.accommodation.title}
+              </h3>
+              <p className="text-gray-700 text-lg">
+                {t.landing.accommodation.text}
+              </p>
             </div>
 
             {/* Refined Minimal Timeline */}
