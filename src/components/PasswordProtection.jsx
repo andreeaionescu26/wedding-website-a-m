@@ -9,6 +9,7 @@ const PasswordProtection = ({ children }) => {
   const [error, setError] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const { t, language, changeLanguage } = useLanguage();
+  
 
   useEffect(() => {
     const unlocked = sessionStorage.getItem('wedding_auth');
@@ -18,6 +19,12 @@ const PasswordProtection = ({ children }) => {
     // Trigger fade-in animation
     setTimeout(() => setIsVisible(true), 100);
   }, []);
+
+    // Scroll to top when authentication state changes
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [isUnlocked]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
