@@ -61,7 +61,7 @@ const RSVPForm = ({ setView }) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-6 md:py-8">
-      <div className="w-full max-w-5xl mx-auto">
+      <div className="w-full max-w-6xl mx-auto">
         <style>{`
           /* Leaf - Simple fade */
           @keyframes fadeIn {
@@ -382,7 +382,7 @@ const RSVPForm = ({ setView }) => {
           {/* Desktop: Two Column Layout (≥ 768px) */}
           <div className="md:grid md:grid-cols-2 md:gap-16 md:items-center">
             
-            {/* Left Column - Header (Desktop Only) */}
+            {/* Left Column - Header (Desktop Only) - UNCHANGED */}
             <div className="hidden md:flex md:flex-col md:items-center md:justify-center text-center">
               <div className="w-full max-w-md pb-12">
                 <div className={`flex justify-center mb-2 fade-leaf ${isVisible ? 'visible' : ''}`}>
@@ -405,13 +405,13 @@ const RSVPForm = ({ setView }) => {
               </div>
             </div>
 
-            {/* Right Column - Form */}
+            {/* Right Column - Form (BIGGER FONTS) */}
             <div className="w-full mx-auto max-w-lg md:max-w-none">
               <div className={`fade-form ${isVisible ? 'visible' : ''}`}>
                 {guests.map((guest, index) => (
-                  <div key={index} className="guest-card mb-4 p-4 bg-cream-100 rounded-lg relative border border-sage-200 opacity-0">
+                  <div key={index} className="guest-card mb-4 p-4 md:p-5 bg-cream-100 rounded-lg relative border border-sage-200 opacity-0">
                     <div className="flex justify-between items-start mb-3">
-                      <h3 className="text-lg font-medium text-sage-700">
+                      <h3 className="text-lg md:text-xl font-medium text-sage-700">
                         {t.rsvp.guest} {index + 1}
                       </h3>
                       {guests.length > 1 && (
@@ -420,22 +420,22 @@ const RSVPForm = ({ setView }) => {
                           className="text-red-500 hover:text-red-700 transition-colors p-1 hover:bg-red-50 rounded"
                           aria-label="Remove guest"
                         >
-                          <Trash2 size={18} />
+                          <Trash2 size={18} className="md:w-5 md:h-5" />
                         </button>
                       )}
                     </div>
 
-                    <div className="space-y-3">
+                    <div className="space-y-3 md:space-y-4">
                       {/* Name Input */}
                       <div className="form-element">
-                        <label className="block text-base font-medium text-gray-700 mb-1">
+                        <label className="block text-base md:text-lg font-medium text-gray-700 mb-1 md:mb-1.5">
                           {t.rsvp.fullName} {t.rsvp.required}
                         </label>
                         <input
                           type="text"
                           value={guest.name}
                           onChange={(e) => updateGuest(index, 'name', e.target.value)}
-                          className="w-full px-3 py-2 text-base border border-sage-300 rounded-md focus:ring-2 focus:ring-sage-500 focus:border-transparent bg-white transition-all"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 text-base md:text-lg border border-sage-300 rounded-md focus:ring-2 focus:ring-sage-500 focus:border-transparent bg-white transition-all"
                           placeholder={t.rsvp.placeholder}
                           style={{ fontSize: '16px' }}
                         />
@@ -443,31 +443,31 @@ const RSVPForm = ({ setView }) => {
 
                       {/* Attending Radio */}
                       <div className="form-element">
-                        <label className="block text-base font-medium text-gray-700 mb-1.5">
+                        <label className="block text-base md:text-lg font-medium text-gray-700 mb-1.5">
                           {t.rsvp.attending} {t.rsvp.required}
                         </label>
-                        <div className="space-y-2">
-                          <label className="flex items-center cursor-pointer group radio-option p-2 rounded-lg">
+                        <div>
+                          <label className="flex items-center cursor-pointer group radio-option p-2 md:p-3 rounded-lg">
                             <input
                               type="radio"
                               value="yes"
                               checked={guest.attending === 'yes'}
                               onChange={(e) => updateGuest(index, 'attending', e.target.value)}
-                              className="mr-2 text-sage-600 focus:ring-sage-500"
+                              className="mr-2 md:mr-3 text-sage-600 focus:ring-sage-500 w-4 h-4 md:w-5 md:h-5"
                             />
-                            <span className="text-base text-gray-700 group-hover:text-sage-700 transition-colors">
+                            <span className="text-base md:text-lg text-gray-700 group-hover:text-sage-700 transition-colors">
                               {t.rsvp.attendingYes}
                             </span>
                           </label>
-                          <label className="flex items-center cursor-pointer group radio-option p-2 rounded-lg">
+                          <label className="flex items-center cursor-pointer group radio-option p-2 md:p-3 rounded-lg">
                             <input
                               type="radio"
                               value="no"
                               checked={guest.attending === 'no'}
                               onChange={(e) => updateGuest(index, 'attending', e.target.value)}
-                              className="mr-2 text-sage-600 focus:ring-sage-500"
+                              className="mr-2 md:mr-3 text-sage-600 focus:ring-sage-500 w-4 h-4 md:w-5 md:h-5"
                             />
-                            <span className="text-base text-gray-700 group-hover:text-sage-700 transition-colors">
+                            <span className="text-base md:text-lg text-gray-700 group-hover:text-sage-700 transition-colors">
                               {t.rsvp.attendingNo}
                             </span>
                           </label>
@@ -477,31 +477,31 @@ const RSVPForm = ({ setView }) => {
                       {/* Menu Choice */}
                       {guest.attending === 'yes' && (
                         <div className="form-element">
-                          <label className="block text-base font-medium text-gray-700 mb-1.5">
+                          <label className="block text-base md:text-lg font-medium text-gray-700 mb-1.5">
                             {t.rsvp.menuChoice} {t.rsvp.required}
                           </label>
-                          <div className="space-y-2">
-                            <label className="flex items-center cursor-pointer group radio-option p-2 rounded-lg">
+                          <div>
+                            <label className="flex items-center cursor-pointer group radio-option p-2 md:p-3 rounded-lg">
                               <input
                                 type="radio"
                                 value="normal"
                                 checked={guest.menu === 'normal'}
                                 onChange={(e) => updateGuest(index, 'menu', e.target.value)}
-                                className="mr-2 text-sage-600 focus:ring-sage-500"
+                                className="mr-2 md:mr-3 text-sage-600 focus:ring-sage-500 w-4 h-4 md:w-5 md:h-5"
                               />
-                              <span className="text-base text-gray-700 group-hover:text-sage-700 transition-colors">
+                              <span className="text-base md:text-lg text-gray-700 group-hover:text-sage-700 transition-colors">
                                 {t.rsvp.menuRegular}
                               </span>
                             </label>
-                            <label className="flex items-center cursor-pointer group radio-option p-2 rounded-lg">
+                            <label className="flex items-center cursor-pointer group radio-option p-2 md:p-3 rounded-lg">
                               <input
                                 type="radio"
                                 value="vegetarian"
                                 checked={guest.menu === 'vegetarian'}
                                 onChange={(e) => updateGuest(index, 'menu', e.target.value)}
-                                className="mr-2 text-sage-600 focus:ring-sage-500"
+                                className="mr-2 md:mr-3 text-sage-600 focus:ring-sage-500 w-4 h-4 md:w-5 md:h-5"
                               />
-                              <span className="text-base text-gray-700 group-hover:text-sage-700 transition-colors">
+                              <span className="text-base md:text-lg text-gray-700 group-hover:text-sage-700 transition-colors">
                                 {t.rsvp.menuVegetarian}
                               </span>
                             </label>
@@ -515,9 +515,9 @@ const RSVPForm = ({ setView }) => {
                 {/* Add Guest Button */}
                 <button
                   onClick={addGuest}
-                  className="w-full mb-4 py-2.5 border-2 border-dashed border-sage-300 text-sage-700 rounded-lg hover:border-sage-500 hover:bg-sage-50 flex items-center justify-center gap-2 transition-all text-base font-medium shadow-sm hover:shadow-md"
+                  className="w-full mb-4 py-2.5 md:py-3 border-2 border-dashed border-sage-300 text-sage-700 rounded-lg hover:border-sage-500 hover:bg-sage-50 flex items-center justify-center gap-2 transition-all text-base md:text-lg font-medium shadow-sm hover:shadow-md"
                 >
-                  <Plus size={20} />
+                  <Plus size={20} className="md:w-6 md:h-6" />
                   {t.rsvp.addGuest}
                 </button>
 
@@ -525,7 +525,7 @@ const RSVPForm = ({ setView }) => {
                 <button
                   onClick={handleSubmit}
                   disabled={submitting}
-                  className="w-full bg-sage-600 text-white py-3 rounded-lg hover:bg-sage-700 transition-all disabled:bg-gray-400 font-medium shadow-md text-base hover:shadow-lg"
+                  className="w-full bg-sage-600 text-white py-3 md:py-4 rounded-lg hover:bg-sage-700 transition-all disabled:bg-gray-400 font-medium shadow-md text-base md:text-lg hover:shadow-lg"
                 >
                   {submitting ? t.rsvp.submitting : t.rsvp.submit}
                 </button>
@@ -534,7 +534,7 @@ const RSVPForm = ({ setView }) => {
                 <div className={`mt-4 pt-4 border-t border-sage-200 text-center fade-footer ${isVisible ? 'visible' : ''}`}>
                   <button
                     onClick={() => setView('landing')}
-                    className="text-sage-600 hover:text-sage-800 text-base transition-colors"
+                    className="text-sage-600 hover:text-sage-800 text-base md:text-lg transition-colors"
                   >
                     {t.rsvp.skipLink}
                   </button>

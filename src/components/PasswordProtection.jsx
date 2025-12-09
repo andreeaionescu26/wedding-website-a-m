@@ -318,14 +318,14 @@ const PasswordProtection = ({ children }) => {
           
           {/* Names - Dramatic entrance from top with bounce */}
           <h1 
-            className={`text-2xl md:text-3xl font-heading text-sage-700 mb-8 fade-names ${isVisible ? 'visible' : ''}`}
+            className={`text-2xl md:text-4xl font-heading text-sage-700 mb-8 md:mb-10 fade-names ${isVisible ? 'visible' : ''}`}
             
           >
             {t.password.names}
           </h1>
 
           {/* Label - Slide from left */}
-          <label className={`block text-base font-medium text-gray-700 mb-3 fade-label ${isVisible ? 'visible' : ''}`}>
+          <label className={`block text-lg font-medium text-gray-700 mb-3 fade-label ${isVisible ? 'visible' : ''}`}>
             {t.password.label}
           </label>
           
@@ -336,7 +336,7 @@ const PasswordProtection = ({ children }) => {
             onChange={(e) => setPassword(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSubmit(e)}
             placeholder={t.password.placeholder}
-            className={`w-full px-4 py-3 text-base border-2 border-sage-300 bg-white rounded-lg mb-2 focus:ring-2 focus:ring-sage-500 focus:border-sage-500 transition-all text-center fade-input ${isVisible ? 'visible' : ''}`}
+            className={`w-full px-4 py-2 text-xl border-2 border-sage-300 bg-white rounded-lg mb-2 focus:ring-2 focus:ring-sage-500 focus:border-sage-500 transition-all text-center fade-input ${isVisible ? 'visible' : ''}`}
             style={{ fontSize: '16px' }}
             required
           />
@@ -349,19 +349,19 @@ const PasswordProtection = ({ children }) => {
           {/* Button - Slide up with bounce and glow */}
           <button
             onClick={handleSubmit}
-            className={`w-full bg-sage-600 text-white py-3 rounded-lg transition-all font-medium shadow-md text-base mb-6 fade-button ${isVisible ? 'visible' : ''}`}
+            className={`w-full bg-sage-600 text-white py-2 rounded-lg transition-all font-medium shadow-md text-lg mb-6 fade-button ${isVisible ? 'visible' : ''}`}
           >
             {t.password.button}
           </button>
 
           {/* Footer - Gentle fade from bottom */}
-          <p className={`text-md text-gray-500 mb-8 fade-footer ${isVisible ? 'visible' : ''}`}>
+          <p className={`text-md md:text-lg text-gray-500 mb-8 fade-footer ${isVisible ? 'visible' : ''}`}>
             {t.password.footer}
           </p>
 
           {/* Language Selection */}
           <div className={`fade-language ${isVisible ? 'visible' : ''}`}>
-            <p className="text-sm text-gray-500 mb-4 uppercase tracking-wide">
+            <p className="text-md text-gray-500 mb-4 uppercase tracking-wide">
               Choose Language / Alege Limba
             </p>
             <div className="flex justify-center gap-6">

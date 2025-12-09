@@ -315,10 +315,10 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
       }
     `}</style>
 
-    {/* Mobile: Single Column, Desktop: Two Column Layout */}
+    {/* Mobile: Single Column, Desktop: Two Column Layout - EQUAL WIDTH */}
     <div className="lg:flex lg:h-screen">
-      {/* Left Side - Hero Image (Mobile: normal flow, Desktop: sticky) */}
-      <div className="lg:w-1/2 lg:sticky lg:top-0 lg:h-screen relative">
+      {/* Left Side - Hero Image (Mobile: normal flow, Desktop: sticky) - 50% WIDTH */}
+      <div className="lg:w-1/2 lg:flex-shrink-0 lg:sticky lg:top-0 lg:h-screen relative">
         <img
           src="wedding_landing_image.jpg"
           alt="Andreea and Marcus"
@@ -329,44 +329,44 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
             <h1 className={`text-2xl md:text-5xl font-serif mb-4 md:mb-8 text-cream-200 font-heading fade-names ${isVisible ? 'visible' : ''} names-text`}>
               {t.landing.names}
             </h1>
-           <p className={`text-md md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
+          <p className={`text-md md:text-2xl font-light fade-subtitle ${isVisible ? 'visible' : ''}`}>
               {t.landing.tagline}
             </p> 
           </div>
         </div>
       </div>
 
-      {/* Right Side - Scrollable Content */}
-      <div className="lg:w-1/2 bg-cream-200 lg:overflow-y-auto">
-        <div className="max-w-2xl mx-auto px-6 md:px-12 py-4 md:py-8">
+      {/* Right Side - Scrollable Content - 50% WIDTH, REDUCED PADDING, BIGGER TEXT */}
+      <div className="lg:w-1/2 lg:flex-shrink-0 bg-cream-200 lg:overflow-y-auto">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 py-4 lg:py-6">
           
           {/* Header Section */}
-          <div className="text-center mt-1 mb-12">
+          <div className="text-center mt-1 mb-10 lg:mb-8">
             {/* Animated Leaf */}
-            <div className={` flex justify-center scale-75 md:scale-90 fade-header ${isVisible ? 'visible' : ''}`}>
+            <div className={`flex justify-center scale-75 md:scale-90 fade-header ${isVisible ? 'visible' : ''}`}>
               <LeafAnimation size="large" variant="horizontal"/>
             </div>
             
-            <p className={`text-sage-700 font-medium text-3xl md:text-4xl mb-4 fade-content ${isVisible ? 'visible' : ''}`}>
+            <p className={`text-sage-700 font-medium text-3xl lg:text-4xl mb-4 fade-content ${isVisible ? 'visible' : ''}`}>
               {t.landing.saveDate}
             </p>
             
             <div className={`space-y-2 text-gray-700 mb-6 fade-content ${isVisible ? 'visible' : ''}`}>
-              <p className="text-2xl font-light">{t.landing.dates}</p>
-              <p className="text-xl">{t.landing.venue}</p>
-              <p className="text-lg text-gray-600">{t.landing.location}</p>
+              <p className="text-2xl lg:text-3xl font-light">{t.landing.dates}</p>
+              <p className="text-xl lg:text-2xl">{t.landing.venue}</p>
+              <p className="text-lg lg:text-xl text-gray-600">{t.landing.location}</p>
             </div>
 
             <button
               onClick={() => setView('rsvp')}
-              className={`bg-sage-600 text-white px-8 py-3 rounded-md hover:bg-sage-700 transition-colors shadow-md font-medium text-lg fade-button ${isVisible ? 'visible' : ''}`}
+              className={`bg-sage-600 text-white px-8 py-3 rounded-md hover:bg-sage-700 transition-colors shadow-md font-medium text-lg lg:text-xl fade-button ${isVisible ? 'visible' : ''}`}
             >
               {t.landing.rsvpButton}
             </button>
           </div>
 
           {/* Divider */}
-          <div className="flex items-center justify-center my-12 scroll-reveal">
+          <div className="flex items-center justify-center my-10 lg:my-8 scroll-reveal">
             <div className="h-px w-12 bg-sage-300"></div>
             <svg className="w-6 h-6 mx-4 text-sage-400" fill="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="3"/>
@@ -375,21 +375,21 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
           </div>
 
           {/* Welcome Paragraph */}
-          <div className="mb-16 scroll-reveal">
-            <p className="text-gray-700 text-xl leading-relaxed text-center md:text-left">
+          <div className="mb-12 lg:mb-10 scroll-reveal">
+            <p className="text-gray-700 text-lg lg:text-xl leading-relaxed text-center md:text-left">
               {t.landing.welcome.text}
             </p>
           </div>
 
           {/* Transportation Info */}
-          <div className="mb-16 bg-white rounded-lg p-6 md:p-8 shadow-sm scroll-reveal">
-            <h3 className="text-2xl font-serif text-sage-700 mb-4 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="mb-12 lg:mb-10 bg-white rounded-lg p-5 lg:p-6 shadow-sm scroll-reveal">
+            <h3 className="text-2xl lg:text-3xl font-serif text-sage-700 mb-4 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
+              <svg className="w-6 h-6 lg:w-7 lg:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
               </svg>
               {t.landing.transportation.title}
             </h3>
-            <div className="space-y-3 text-gray-700 text-lg">
+            <div className="space-y-3 text-gray-700 text-base lg:text-lg">
               <p>
                 {t.landing.transportation.paragraph1} <strong>{t.landing.transportation.airport}</strong> {t.landing.transportation.paragraph2} <strong>{t.landing.transportation.date}</strong>.
               </p>
@@ -400,21 +400,21 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
           </div>
 
           {/* Accommodation Info */}
-          <div className="mb-16 bg-white rounded-lg p-6 md:p-8 shadow-sm scroll-reveal">
-            <h3 className="text-2xl font-serif text-sage-700 mb-4 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="mb-12 lg:mb-10 bg-white rounded-lg p-5 lg:p-6 shadow-sm scroll-reveal">
+            <h3 className="text-2xl lg:text-3xl font-serif text-sage-700 mb-4 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
+              <svg className="w-6 h-6 lg:w-7 lg:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
               {t.landing.accommodation.title}
             </h3>
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-700 text-base lg:text-lg">
               {t.landing.accommodation.text}
             </p>
           </div>
 
           {/* Refined Minimal Timeline */}
-          <div className="mb-16 scroll-reveal">
-            <h2 className="text-3xl font-normal text-sage-700 text-center mb-12">
+          <div className="mb-12 lg:mb-10 scroll-reveal">
+            <h2 className="text-3xl lg:text-4xl font-normal text-sage-700 text-center mb-10 lg:mb-8">
               {t.landing.timeline.title}
             </h2>
 
@@ -428,21 +428,21 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
                 
                 <div className="timeline-content">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
-                    <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
+                    <h3 className="text-2xl lg:text-3xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                       {t.landing.timeline.friday.day}
                     </h3>
-                    <span className="hidden md:block text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
+                    <span className="hidden md:block text-sm lg:text-base bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
                       {t.landing.timeline.friday.dresscode}
                     </span>
                   </div>
                   <div className="space-y-3 text-gray-700">
                     <div className="flex items-start gap-3">
-                      <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.friday.arrival}</span>
-                      <span className="text-lg">{t.landing.timeline.friday.arrivalEvent}</span>
+                      <span className="text-sage-600 font-medium min-w-[100px] text-base lg:text-lg">{t.landing.timeline.friday.arrival}</span>
+                      <span className="text-base lg:text-lg">{t.landing.timeline.friday.arrivalEvent}</span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.friday.evening}</span>
-                      <span className="text-lg">{t.landing.timeline.friday.eveningEvent}</span>
+                      <span className="text-sage-600 font-medium min-w-[100px] text-base lg:text-lg">{t.landing.timeline.friday.evening}</span>
+                      <span className="text-base lg:text-lg">{t.landing.timeline.friday.eveningEvent}</span>
                     </div>
                   </div>
                 </div>
@@ -458,30 +458,30 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
                 
                 <div className="timeline-content timeline-content-wedding">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
-                    <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
+                    <h3 className="text-2xl lg:text-3xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                       {t.landing.timeline.saturday.day}
                     </h3>
-                    <span className="text-sm bg-sage-600 text-white px-3 py-1.5 rounded-full uppercase tracking-wide font-semibold w-fit">
+                    <span className="text-sm lg:text-base bg-sage-600 text-white px-3 py-1.5 rounded-full uppercase tracking-wide font-semibold w-fit">
                       {t.landing.timeline.saturday.dresscode}
                     </span>
                   </div>
                   <div className="space-y-3 text-gray-700 mb-4">
                     <div className="flex items-start gap-3">
-                      <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.saturday.morning}</span>
-                      <span className="text-lg">{t.landing.timeline.saturday.morningEvent}</span>
+                      <span className="text-sage-600 font-medium min-w-[100px] text-base lg:text-lg">{t.landing.timeline.saturday.morning}</span>
+                      <span className="text-base lg:text-lg">{t.landing.timeline.saturday.morningEvent}</span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.saturday.afternoon}</span>
-                      <span className="text-lg">{t.landing.timeline.saturday.afternoonEvent}</span>
+                      <span className="text-sage-600 font-medium min-w-[100px] text-base lg:text-lg">{t.landing.timeline.saturday.afternoon}</span>
+                      <span className="text-base lg:text-lg">{t.landing.timeline.saturday.afternoonEvent}</span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.saturday.evening}</span>
-                      <span className="text-lg">{t.landing.timeline.saturday.eveningEvent}</span>
+                      <span className="text-sage-600 font-medium min-w-[100px] text-base lg:text-lg">{t.landing.timeline.saturday.evening}</span>
+                      <span className="text-base lg:text-lg">{t.landing.timeline.saturday.eveningEvent}</span>
                     </div>
                   </div>
                   <div className="pt-4 mt-4 border-t border-sage-200">
                     <div className="bg-white px-4 py-3 rounded border border-sage-200">
-                      <strong className="text-sage-700">{t.landing.timeline.saturday.dresscodeLabel}</strong> <span className="text-base">{t.landing.timeline.saturday.dresscodeText}</span>
+                      <strong className="text-sage-700 text-base lg:text-lg">{t.landing.timeline.saturday.dresscodeLabel}</strong> <span className="text-base lg:text-lg">{t.landing.timeline.saturday.dresscodeText}</span>
                     </div>
                   </div>
                 </div>
@@ -493,17 +493,17 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
                 
                 <div className="timeline-content">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
-                    <h3 className="text-2xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
+                    <h3 className="text-2xl lg:text-3xl font-serif text-sage-700" style={{ fontFamily: 'Georgia, serif' }}>
                       {t.landing.timeline.sunday.day}
                     </h3>
-                    <span className="hidden md:block text-sm bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
+                    <span className="hidden md:block text-sm lg:text-base bg-sage-100 text-sage-700 px-3 py-1.5 rounded-full uppercase tracking-wide font-medium w-fit">
                       {t.landing.timeline.sunday.dresscode}
                     </span>
                   </div>
                   <div className="space-y-3 text-gray-700">
                     <div className="flex items-start gap-3">
-                      <span className="text-sage-600 font-medium min-w-[100px]">{t.landing.timeline.sunday.morning}</span>
-                      <span className="text-lg">{t.landing.timeline.sunday.morningEvent}</span>
+                      <span className="text-sage-600 font-medium min-w-[100px] text-base lg:text-lg">{t.landing.timeline.sunday.morning}</span>
+                      <span className="text-base lg:text-lg">{t.landing.timeline.sunday.morningEvent}</span>
                     </div>
                   </div>
                 </div>
@@ -512,29 +512,29 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
           </div>
 
           {/* Dress Code */}
-          <div className="mb-8 scroll-reveal">
-            <h2 className="text-3xl font-normal text-sage-700 text-center mb-8">
+          <div className="mb-8 lg:mb-6 scroll-reveal">
+            <h2 className="text-3xl lg:text-4xl font-normal text-sage-700 text-center mb-8 lg:mb-6">
               {t.landing.dresscode.title}
             </h2>
             
-            <div className="space-y-6">
-              <div className="bg-white rounded-lg p-6 shadow-sm scroll-reveal">
-                <h3 className="text-xl font-serif text-sage-700 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
+            <div className="space-y-5 lg:space-y-4">
+              <div className="bg-white rounded-lg p-5 lg:p-6 shadow-sm scroll-reveal">
+                <h3 className="text-xl lg:text-2xl font-serif text-sage-700 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
                   {t.landing.dresscode.casual.title}
                 </h3>
-                <p className="text-gray-700 text-lg">
+                <p className="text-gray-700 text-base lg:text-lg">
                   {t.landing.dresscode.casual.text}
                 </p>
               </div>
 
-              <div className="bg-sage-50 rounded-lg p-6 shadow-sm border border-sage-300 scroll-reveal">
-                <h3 className="text-xl font-serif text-sage-700 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
+              <div className="bg-sage-50 rounded-lg p-5 lg:p-6 shadow-sm border border-sage-300 scroll-reveal">
+                <h3 className="text-xl lg:text-2xl font-serif text-sage-700 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
                   {t.landing.dresscode.formal.title}
                 </h3>
-                <p className="text-gray-700 mb-3 text-lg">
+                <p className="text-gray-700 mb-3 text-base lg:text-lg">
                   {t.landing.dresscode.formal.text}
                 </p>
-                <p className="text-gray-600 italic text-base">
+                <p className="text-gray-600 italic text-base lg:text-lg">
                   {t.landing.dresscode.formal.note}
                 </p>
               </div>
@@ -542,21 +542,21 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
           </div>
 
           {/* Final RSVP Button */}
-          <div className="text-center py-4 scroll-reveal">
+          <div className="text-center py-4 lg:py-6 scroll-reveal">
             <div className="mb-2">
-              <svg className="w-12 h-12 mx-auto text-sage-500 float-animation" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
+              <svg className="w-12 h-12 lg:w-14 lg:h-14 mx-auto text-sage-500 float-animation" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 className="text-3xl font-normal text-sage-700 mb-4">
+            <h3 className="text-3xl lg:text-4xl font-normal text-sage-700 mb-4">
               {t.landing.finalCta.title}
             </h3>
-            <p className="text-gray-600 mb-6 text-lg">
+            <p className="text-gray-600 mb-6 text-lg lg:text-xl">
               {t.landing.finalCta.subtitle}
             </p>
             <button
               onClick={() => setView('rsvp')}
-              className="bg-sage-600 text-white px-10 py-4 rounded-md hover:bg-sage-700 transition-colors shadow-md text-lg font-medium"
+              className="bg-sage-600 text-white px-10 py-4 rounded-md hover:bg-sage-700 transition-colors shadow-md text-lg lg:text-xl font-medium"
             >
               {t.landing.finalCta.button}
             </button>
