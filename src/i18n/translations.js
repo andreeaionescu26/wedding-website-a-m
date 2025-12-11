@@ -56,9 +56,15 @@ export const translations = {
 
     rsvpModal: {
       thankYou: "Thank You!",
-      attending: "We can't wait to celebrate with you! It wouldn't be the same without you.",
-      notAttending: "We're sorry you can't make it, but we appreciate you letting us know. You'll be missed!",
-      button: "Find out more details"
+      attending: "We're so excited to celebrate with you! You'll receive more details closer to the date.",
+      notAttending: "We'll miss you, but we understand. Thank you for letting us know.",
+      messageLabel: "Would you like to share why you can't make it?",
+      messagePlaceholder: "Let us know your reason (optional)...",
+      messageNote: "Optional - but we'd love to hear from you",
+      button: "Find out more details",
+      submitMessage: "Send Message",
+      submitting: "Sending...",
+      skipMessage: "Skip and continue"
     },
 
     // Landing Page
@@ -70,7 +76,9 @@ export const translations = {
       venue: "Zabola Estate",
       location: "Transylvania, Romania",
       rsvpButton: "RSVP Now",
-      
+      map: {
+        title: "Where We'll Celebrate"
+      },
       welcome: {
         text: "Andreea and Marcus are getting married on Saturday, 27th of June 2026 at Zabola Estate. Join us for a weekend celebration from Friday to Sunday as we tie the knot, surrounded by the people we love the most. We can't wait to share this with you."
       },
@@ -176,7 +184,9 @@ export const translations = {
         no: "No",
         na: "N/A",
         noData: "No RSVPs yet"
-      }
+      },
+      declineReason: "Decline Reason",
+      noReason: "No reason provided"
     }
   },
 
@@ -239,7 +249,13 @@ export const translations = {
       thankYou: "Mulțumim!",
       attending: "Abia așteptăm să sărbătorim alături de tine!  Nu ar fi la fel fără tine.",
       notAttending: "Ne pare rău că nu poți veni, dar îți mulțumim că ne-ai anunțat. O să ne fie dor de tine!",
-      button: "Aflta mai multe detalii despre nunta"
+      messageLabel: "Vrei să ne spui de ce nu poți participa?",
+      messagePlaceholder: "Spune-ne motivul (opțional)...",
+      messageNote: "Opțional - dar ne-ar plăcea să auzim de la tine",
+      button: "Afla mai multe detalii",
+      submitMessage: "Trimite Mesaj",
+      submitting: "Se trimite...",
+      skipMessage: "Sari și continuă"
     },
 
     // Landing Page
@@ -251,7 +267,9 @@ export const translations = {
       venue: "Conacul Zabola",
       location: "Transilvania, România",
       rsvpButton: "Confirmă Prezența",
-      
+      map: {
+       title: "Unde Vom Sarbatori"
+      },
       welcome: {
         text: "Andreea și Marcus se căsătoresc sâmbătă, 27 iunie 2026 la Conacul Zabola. Alătură-te nouă pentru acest eveniment special de vineri până duminică înconjurați de oamenii pe care îi iubim cel mai mult. Abia așteptăm să împărtasim acest moment cu tine."
       },
@@ -357,7 +375,9 @@ export const translations = {
         no: "Nu",
         na: "N/A",
         noData: "Încă nicio confirmare"
-      }
+      },
+      declineReason: "Motiv Refuz",
+      noReason: "Niciun motiv"
     }
   }
 };

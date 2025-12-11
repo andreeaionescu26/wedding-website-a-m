@@ -338,7 +338,7 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
 
       {/* Right Side - Scrollable Content - 50% WIDTH, REDUCED PADDING, BIGGER TEXT */}
       <div className="lg:w-1/2 lg:flex-shrink-0 bg-cream-200 lg:overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 py-4 lg:py-6">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 py-4 lg:py-6 pb-16">
           
           {/* Header Section */}
           <div className="text-center mt-1 mb-10 lg:mb-8">
@@ -512,7 +512,7 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
           </div>
 
           {/* Dress Code */}
-          <div className="mb-8 lg:mb-6 scroll-reveal">
+          <div className="mb-8 lg:mb-12 scroll-reveal">
             <h2 className="text-3xl lg:text-4xl font-normal text-sage-700 text-center mb-8 lg:mb-6">
               {t.landing.dresscode.title}
             </h2>
@@ -538,6 +538,26 @@ const LandingPage = ({ setView, setShowBurgerMenu }) => {
                   {t.landing.dresscode.formal.note}
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* Google Map */}
+          <div className="mb-12 lg:mb-10 scroll-reveal">
+            <h2 className="text-3xl lg:text-4xl font-normal text-sage-700 text-center mb-8 lg:mb-6">
+              {t.landing.map.title}
+            </h2>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2776.9745994137966!2d26.196789576742045!3d45.89182110480503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b4926a067f7f77%3A0x4f2156a359745e2!2sZabola%20Estate%20-%20Transylvania!5e0!3m2!1sen!2suk!4v1765463424032!5m2!1sen!2suk"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Zabola Estate Location"
+              ></iframe>
             </div>
           </div>
 

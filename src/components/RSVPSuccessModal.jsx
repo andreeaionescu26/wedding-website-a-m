@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LeafAnimation from './LeafAnimation';
 
-const RSVPSuccessModal = ({ isOpen, onClose, hasAttendingGuests }) => {
+const RSVPSuccessModal = ({ isOpen, onClose, hasAttendingGuests, onMessageSubmit }) => {
   const { t } = useLanguage();
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
+
+  const handleSubmit = async () => {
+    if (!hasAttendingGuests && message.trim()) {
+      setIsSubmitting(true);
+      await onMessageSubmit(message.trim());
+      setIsSubmitting(false);
+    }
+    setMessage('');
+    onClose();
+  };
+
+  const handleSkip = () => {
+    setMessage('');
+    onClose();
+  };
 
   return (
     <>
@@ -90,7 +107,7 @@ const RSVPSuccessModal = ({ isOpen, onClose, hasAttendingGuests }) => {
       {/* Backdrop */}
       <div 
         className="modal-overlay fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-        onClick={onClose}
+        onClick={handleSkip}
       >
         {/* Modal */}
         <div 
@@ -99,7 +116,7 @@ const RSVPSuccessModal = ({ isOpen, onClose, hasAttendingGuests }) => {
         >
           {/* Close Button */}
           <button
-            onClick={onClose}
+            onClick={handleSkip}
             className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
             aria-label="Close"
           >
@@ -108,17 +125,17 @@ const RSVPSuccessModal = ({ isOpen, onClose, hasAttendingGuests }) => {
 
           {/* Content */}
           <div className="text-center">
-          {/* Sparkles Animation - Ultra Thin Outlined with Delicate Float */}
-          <div className="flex justify-center mb-6">
-            <svg className="w-24 h-20 text-sage-600" viewBox="0 0 32 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round">
-              {/* Main center sparkle */}
-              <path className="sparkle-main" style={{ transformOrigin: 'center' }} d="M16 2L18.5 9.5L26 12L18.5 14.5L16 22L13.5 14.5L6 12L13.5 9.5L16 2Z"/>
-              {/* Top right small sparkle - moved further right */}
-              <path className="sparkle-small-1" style={{ transformOrigin: 'center' }} d="M26 3L26.8 5.2L29 6L26.8 6.8L26 9L25.2 6.8L23 6L25.2 5.2L26 3Z"/>
-              {/* Bottom left small sparkle - moved further left */}
-              <path className="sparkle-small-2" style={{ transformOrigin: 'center' }} d="M6 15L6.8 17.2L9 18L6.8 18.8L6 21L5.2 18.8L3 18L5.2 17.2L6 15Z"/>
-            </svg>
-          </div>
+            {/* Sparkles Animation */}
+            <div className="flex justify-center mb-6">
+              <svg className="w-24 h-20 text-sage-600" viewBox="0 0 32 24" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round">
+                {/* Main center sparkle */}
+                <path className="sparkle-main" style={{ transformOrigin: 'center' }} d="M16 2L18.5 9.5L26 12L18.5 14.5L16 22L13.5 14.5L6 12L13.5 9.5L16 2Z"/>
+                {/* Top right small sparkle */}
+                <path className="sparkle-small-1" style={{ transformOrigin: 'center' }} d="M26 3L26.8 5.2L29 6L26.8 6.8L26 9L25.2 6.8L23 6L25.2 5.2L26 3Z"/>
+                {/* Bottom left small sparkle */}
+                <path className="sparkle-small-2" style={{ transformOrigin: 'center' }} d="M6 15L6.8 17.2L9 18L6.8 18.8L6 21L5.2 18.8L3 18L5.2 17.2L6 15Z"/>
+              </svg>
+            </div>
 
             {/* Thank You Title */}
             <h2 className="text-3xl font-serif text-sage-700 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
@@ -126,20 +143,66 @@ const RSVPSuccessModal = ({ isOpen, onClose, hasAttendingGuests }) => {
             </h2>
 
             {/* Message based on attendance */}
-            <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+            <p className="text-gray-700 text-lg mb-6 leading-relaxed">
               {hasAttendingGuests ? t.rsvpModal.attending : t.rsvpModal.notAttending}
             </p>
 
-            {/* Button */}
-            <button
-  onClick={onClose}
-  className="w-full bg-sage-600 text-white py-3.5 px-6 rounded-lg hover:bg-sage-700 transition-all shadow-md hover:shadow-lg font-medium text-base flex items-center justify-center gap-2 group"
->
-  <span>{t.rsvpModal.button}</span>
-  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-  </svg>
-</button>
+            {/* Optional Message Input for declined guests */}
+            {!hasAttendingGuests && (
+              <div className="mb-6 text-left">
+                <label className="block text-lg font-medium text-gray-700 mb-2">
+                  {t.rsvpModal.messageLabel}
+                </label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder={t.rsvpModal.messagePlaceholder}
+                  className="w-full px-4 py-3 text-base border border-sage-300 rounded-lg focus:ring-2 focus:ring-sage-500 focus:border-transparent bg-white transition-all resize-none"
+                  rows={4}
+                  style={{ fontSize: '16px' }}
+                />
+                <p className="text-md text-gray-500 mt-2 italic">
+                  {t.rsvpModal.messageNote}
+                </p>
+              </div>
+            )}
+
+            {/* Button(s) */}
+            {!hasAttendingGuests ? (
+              <div className="space-y-3">
+                {/* Submit with message button */}
+                <button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className="w-full bg-sage-600 text-white py-3.5 px-6 rounded-lg hover:bg-sage-700 transition-all shadow-md hover:shadow-lg font-medium text-base flex items-center justify-center gap-2 group disabled:bg-gray-400"
+                >
+                  <span>{isSubmitting ? t.rsvpModal.submitting : (message.trim() ? t.rsvpModal.submitMessage : t.rsvpModal.button)}</span>
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                
+                {/* Skip button (if they added a message) */}
+                {message.trim() && (
+                  <button
+                    onClick={handleSkip}
+                    className="w-full text-gray-600 hover:text-gray-800 py-2 text-sm transition-colors"
+                  >
+                    {t.rsvpModal.skipMessage}
+                  </button>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={handleSubmit}
+                className="w-full bg-sage-600 text-white py-3.5 px-6 rounded-lg hover:bg-sage-700 transition-all shadow-md hover:shadow-lg font-medium text-base flex items-center justify-center gap-2 group"
+              >
+                <span>{t.rsvpModal.button}</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </div>
